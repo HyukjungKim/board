@@ -1,0 +1,385 @@
+<title>마지막 성화 프롬프트북</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Nanum+Myeongjo:wght@700;800&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column like a pilgrim's ledger; sticky header holds category tabs + progress. */
+:root{
+  --bg:#ebe3d2; --surface:#f6f0e3; --ink:#1e1913; --muted:#6a5e4d; --line:#d2c5ab;
+  --ember:#a5620f; --ember-ink:#fff8ea; --done:#5b6b3a;
+  --f-display:"Nanum Myeongjo","IM Fell English SC",Georgia,serif;
+  --f-latin:"IM Fell English SC",Georgia,serif;
+  --f-body:"Noto Sans KR",system-ui,-apple-system,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14110d; --surface:#1e1a14; --ink:#e9e0cd; --muted:#9d907b; --line:#3a3229;
+  --ember:#e2a44a; --ember-ink:#1a1206; --done:#9fb26e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14110d; --surface:#1e1a14; --ink:#e9e0cd; --muted:#9d907b; --line:#3a3229;
+  --ember:#e2a44a; --ember-ink:#1a1206; --done:#9fb26e; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+h1{font-family:var(--f-display);font-weight:800;font-size:1.9rem;line-height:1.25;margin:0;text-wrap:balance}
+.latin{font-family:var(--f-latin);color:var(--ember);letter-spacing:.06em;font-size:1rem}
+.lede{color:var(--muted);margin:.5rem 0 0;max-width:60ch}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.25rem;margin:2.2rem 0 .6rem;text-wrap:balance}
+h3{font-size:.95rem;margin:0 0 .3rem}
+.rule{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
+.days{display:grid;gap:10px}
+.day{border-left:3px solid var(--ember);padding:.2rem 0 .2rem .8rem}
+.day b{font-family:var(--f-display)}
+.day p{margin:.15rem 0 0;color:var(--muted);font-size:.9rem}
+ul.tips{margin:.3rem 0;padding-left:1.1rem}
+ul.tips li{margin:.25rem 0}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px}
+.box pre{font-family:var(--f-mono);font-size:.78rem;white-space:pre-wrap;word-break:break-word;margin:.4rem 0 .6rem;color:var(--ink)}
+.btn{font:500 .85rem var(--f-body);border:1px solid var(--ember);background:var(--ember);color:var(--ember-ink);border-radius:4px;padding:.45rem .9rem;cursor:pointer;min-height:38px}
+.btn.ghost{background:transparent;color:var(--ember)}
+.btn:focus-visible,.tab:focus-visible,input:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.86rem}
+th,td{text-align:left;padding:.4rem .5rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:.78rem;letter-spacing:.04em}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:10px max(16px,env(safe-area-inset-left,0px)) 8px}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.tab{flex:none;font:500 .82rem var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.3rem .75rem;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tab small{color:inherit;opacity:.65;margin-left:.25rem;font-variant-numeric:tabular-nums}
+.prog{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.fill{height:100%;background:var(--ember);width:0;transition:width .3s}
+.orient{display:flex;gap:4px;align-items:center}
+.orient button{font:.75rem var(--f-body);border:1px solid var(--line);background:transparent;color:var(--muted);padding:.15rem .5rem;border-radius:3px;cursor:pointer}
+.orient button[aria-pressed="true"]{color:var(--ember);border-color:var(--ember)}
+
+.list{display:grid;gap:10px;margin-top:14px}
+.catHead{margin:18px 0 0;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.catHead h2{margin:0}
+.catHead span{color:var(--muted);font-size:.82rem}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.item.done{opacity:.55}
+.item.done .name{text-decoration:line-through;text-decoration-color:var(--done)}
+.chk{grid-row:1 / span 3;padding-top:2px}
+.chk input{width:22px;height:22px;accent-color:var(--done);cursor:pointer}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:baseline;min-width:0}
+.id{font-family:var(--f-mono);font-size:.75rem;color:var(--ember)}
+.name{font-weight:700}
+.chip{font-size:.7rem;border:1px solid var(--line);border-radius:3px;padding:0 .35rem;color:var(--muted)}
+.chip.ref{border-color:var(--ember);color:var(--ember)}
+.subj{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);min-width:0;word-break:break-word}
+.acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+details{min-width:0}
+details summary{font-size:.78rem;color:var(--muted);cursor:pointer}
+details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word-break:break-word;margin:.4rem 0 0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:.5rem 1rem;border-radius:4px;font-size:.85rem;z-index:20}
+@media (prefers-reduced-motion:reduce){.fill{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="latin">The Last Flame · Art Bible v0.1</div>
+    <h1>마지막 성화 프롬프트북</h1>
+    <p class="lede">힉스필드 무료 3일 동안 쓸 프롬프트 모음입니다. 각 항목의 <b>복사</b>를 누르면 스타일 문구까지 합쳐진 완성 프롬프트가 복사됩니다. 생성을 마친 항목은 체크해 두세요. 체크 기록은 이 기기에만 저장됩니다.</p>
+    <p class="lede">세계관은 임시로 <b>A안 「꺼져가는 등불」</b>입니다. 태양이 사라진 지 100년, 마지막 성화를 등불에 나눠 든 순례자들이 어둠 속을 걷습니다. 어둠의 것들은 빛에 끌립니다.</p>
+  </header>
+
+  <h2>3일 일정</h2>
+  <div class="days">
+    <div class="day"><b>1일차 · 스타일 고정 → 주인공 → 적</b><p>처음 1~2시간은 스타일 테스트만 합니다. 기사, 나방 떼, 성당 배경 세 가지를 20~40장 뽑아서 기준 이미지 3~5장을 고르세요. 이후 모든 생성에 이 기준 이미지를 레퍼런스로 넣습니다. 다음으로 주인공 전신 → 초상 → 타락 버전, 그다음 일반 적.</p></div>
+    <div class="day"><b>2일차 · 보스 → 배경 → 지도 → 오브젝트 → 카드 일러스트</b><p>물량이 가장 많은 날입니다. 카드 일러스트는 장당 4장씩 뽑고 바로 고르세요.</p></div>
+    <div class="day"><b>3일차 · 아이콘 → UI 프레임 → 이펙트 → 영상</b><p>영상 크레딧은 마지막 날 몰아서 씁니다. 타이틀 루프, 주인공 대기 루프, 이펙트 루프 순서. 남은 시간에는 빈 곳을 다시 뽑습니다.</p></div>
+  </div>
+
+  <h2>시작 전에 꼭</h2>
+  <ul class="tips">
+    <li><b>상업적 이용 조건 확인.</b> 무료 체험으로 만든 이미지를 게임에 써도 되는지 힉스필드 약관을 먼저 보세요. 안 된다면 이번 3일은 컨셉/프로토타입용으로 생각해야 합니다.</li>
+    <li><b>매일 밤 전부 다운로드.</b> 체험이 끝나면 생성 기록에 접근하지 못할 수 있습니다. 파일명은 항목 ID로 맞추세요(예: <code>H02_v3.png</code>).</li>
+    <li><b>투명 배경은 나오지 않습니다.</b> 캐릭터·적·오브젝트는 단색 회색 배경으로 뽑고, 배경 제거는 나중에 무료 도구로 일괄 처리합니다. 이펙트는 순흑 배경으로 뽑아 게임에서 가산(Add) 블렌드로 쓰면 검은색이 사라집니다.</li>
+    <li><b>글자는 넣지 않습니다.</b> AI는 글자를 망칩니다. 카드 이름·수치·로고 글자는 게임 안에서 텍스트로 얹습니다.</li>
+    <li><b>레퍼런스 이미지를 받는 모델을 쓰세요.</b> 같은 캐릭터를 여러 장 뽑을 때(초상, 타락 버전, 카드 일러스트) 기준 이미지를 넣어야 얼굴과 복장이 유지됩니다. 주황 테두리의 <span class="chip ref">REF</span> 표시가 붙은 항목입니다.</li>
+    <li><b>가장 높은 해상도로.</b> 업스케일은 나중에 해도 되지만, 작게 뽑은 디테일은 되살리지 못합니다.</li>
+  </ul>
+
+  <h2>공통 문구</h2>
+  <div class="box">
+    <h3>스타일 (모든 프롬프트 끝에 자동으로 붙음)</h3>
+    <pre id="coreTxt"></pre>
+    <button class="btn ghost" id="copyCore" type="button">스타일 복사</button>
+    <hr class="rule">
+    <h3>네거티브 (입력란이 있는 모델에서만)</h3>
+    <pre id="negTxt"></pre>
+    <button class="btn ghost" id="copyNeg" type="button">네거티브 복사</button>
+  </div>
+  <p class="lede">아트 규칙: 동판화풍 흑백에 <b>색은 촛불의 금빛 하나</b>만 씁니다. 빛은 금색, 타락은 잉크처럼 번지는 검정입니다. 그래서 화면에서 금색이 보이면 곧 희망이라는 게 규칙과 그림 양쪽에서 읽힙니다.</p>
+
+  <h2>비율과 용도</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>종류</th><th>비율</th><th>배경</th><th>후처리</th></tr></thead>
+    <tbody>
+      <tr><td>주인공·적·보스 전신</td><td>2:3</td><td>단색 회색</td><td>배경 제거</td></tr>
+      <tr><td>초상·아이콘·오브젝트</td><td>1:1</td><td>회색 / 아이콘은 검정</td><td>배경 제거, 축소 테스트</td></tr>
+      <tr><td>배경·키아트</td><td id="bgRatioCell">16:9</td><td>장면 전체</td><td>UI 들어갈 자리 비우기</td></tr>
+      <tr><td>카드 일러스트</td><td>3:4</td><td>장면 전체</td><td>프레임 안에 크롭</td></tr>
+      <tr><td>지도 타일</td><td>1:1</td><td>이음새 없는 질감</td><td>타일링 확인</td></tr>
+      <tr><td>이펙트</td><td>1:1</td><td>순흑</td><td>가산 블렌드, 영상은 프레임 추출</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="bar" id="bar">
+    <div class="tabs" id="tabs" role="toolbar" aria-label="분류"></div>
+    <div class="prog">
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <span id="progTxt">0 / 0</span>
+      <div class="orient" role="group" aria-label="화면 방향">
+        <button type="button" id="oL" aria-pressed="true">가로</button>
+        <button type="button" id="oP" aria-pressed="false">세로</button>
+      </div>
+    </div>
+  </div>
+  <div id="list"></div>
+</div>
+<textarea id="clip" aria-hidden="true" tabindex="-1" style="position:fixed;left:-9999px;top:0"></textarea>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const CORE = "dark medieval fantasy, copperplate etching and wood engraving style, dense fine crosshatching, inspired by Albrecht Durer and Gustave Dore, near-monochrome sepia and iron-gall black ink, the only color is a warm ember-gold candlelight glow, strong chiaroscuro, grim and somber mood, ancient decaying world, highly detailed";
+const NEG = "text, letters, words, watermark, signature, logo, modern objects, saturated colors, anime, cartoon, chibi, 3d render, plastic, glossy, blurry, lowres, cropped, extra limbs, extra fingers, deformed hands";
+const REFP = "Use the reference image: keep exactly the same character design, face, body and costume. ";
+const SUF = {
+  hero:"full body character, standing pose, three-quarter view, centered, whole figure visible head to toe, isolated on a plain flat medium-grey background, no ground, clear readable silhouette, game character concept art",
+  portrait:"bust portrait, head and shoulders, centered, facing slightly to the side, plain dark background, game character portrait",
+  corrupt:"full body, same pose, the body partly turning into black ink and dripping shadow, black veins, hollow eyes with faint gold light, isolated on a plain flat medium-grey background, game character concept art",
+  enemy:"full body creature, menacing pose, centered, whole figure visible, isolated on a plain flat medium-grey background, no ground, clear readable silhouette, game monster concept art",
+  boss:"colossal boss monster, full body, dramatic low angle, centered, whole figure visible, isolated on a plain flat medium-grey background, epic scale, game boss concept art",
+  bg:"wide environment painting, no characters, deep atmospheric perspective, the lower third kept calm and simple for game UI, game background",
+  map:"antique hand-drawn map, top-down view, ink on aged parchment, no text, no labels, no letters, game map",
+  tile:"seamless tileable texture, top-down orthographic view, even lighting, no perspective, no objects in center, game tile",
+  obj:"single game prop, centered, slight top-down three-quarter view, isolated on a plain flat medium-grey background, no ground shadow, clear silhouette",
+  card:"illustration for a game card, single clear focal subject in the center, darkened vignette edges, no frame, no border",
+  icon:"game UI icon, one bold simple symbol, centered, thick engraved lines, readable at very small size, ember-gold symbol on a pure black background",
+  fx:"visual effect only, no characters, no ground, centered, glowing on a pure black background, game VFX",
+  ui:"ornate game UI frame, empty center, perfectly symmetrical, flat front view, engraved dark iron and aged bone ornament, on a pure black background, no text",
+  key:"cinematic key art, epic composition, strong focal point, game title screen illustration"
+};
+const CATS = [
+  {k:"hero",ko:"주인공",day:1,note:"전신을 먼저 확정하세요. 고른 전신 이미지가 이후 초상·타락·카드 일러스트의 레퍼런스입니다."},
+  {k:"portrait",ko:"초상",day:1,note:"대화창, 파티 선택, 턴 순서 표시에 씁니다."},
+  {k:"corrupt",ko:"타락 버전",day:1,note:"타락 트랙이 끝까지 차면 카드를 뒤집어 보여 줄 모습입니다."},
+  {k:"enemy",ko:"적",day:1,note:"모두 빛에 끌리는 존재들입니다."},
+  {k:"boss",ko:"보스",day:2,note:"챕터 끝의 보스들입니다."},
+  {k:"key",ko:"키아트",day:2,note:"스토어 대표 이미지와 타이틀 화면에 씁니다. 영상 루프의 원본이 됩니다."},
+  {k:"bg",ko:"배경",day:2,note:"하단 1/3은 UI가 덮으니 비워 두는 문구가 들어 있습니다."},
+  {k:"map",ko:"지도",day:2,note:"노드형 지도 배경과 바닥 타일입니다."},
+  {k:"obj",ko:"오브젝트",day:2,note:"맵 위에 올리는 소품입니다."},
+  {k:"card",ko:"카드 일러스트",day:2,note:"스킬·사건·아이템 카드 그림입니다. 프레임은 UI 탭에서 따로 뽑습니다."},
+  {k:"icon",ko:"아이콘",day:3,note:"뽑은 뒤 64px로 줄여서 알아볼 수 있는지 꼭 확인하세요."},
+  {k:"ui",ko:"UI 프레임",day:3,note:"글자 없이 틀만 뽑습니다."},
+  {k:"fx",ko:"이펙트",day:3,note:"순흑 배경 → 가산 블렌드. 🎞 표시는 영상 루프로 만들 것을 추천합니다."}
+];
+// [id, cat, 한글이름, ratio(BG=방향 따라), subject, refId?, video?]
+const ITEMS = [
+ ["H01","hero","등불지기","2:3","a gaunt old pilgrim woman in layered tattered robes, carrying a large iron reliquary lantern on a wooden pole, the ember-gold flame inside lighting her wrinkled determined face"],
+ ["H02","hero","파문당한 기사","2:3","a battered knight in dented plate armor, the holy symbol on his breastplate scratched away, torn surcoat, broken greatsword, helmet held under one arm, scarred weary face"],
+ ["H03","hero","역병 의사","2:3","a tall plague doctor in a long waxed leather coat, beaked mask with round glass eyes reflecting candlelight, satchel of vials and dried herbs, cane with a small smoking censer"],
+ ["H04","hero","무덤 도굴꾼","2:3","a lean young grave robber in a hooded cloak, lower face wrapped in cloth, shovel and crowbar on the back, belt hung with stolen rings and finger bones, sly crouching stance"],
+ ["H05","hero","눈먼 수녀","2:3","a young blind nun with a linen blindfold over her eyes, holding a rosary and a single lit candle, prayer ribbons with wax seals on her habit, serene face"],
+ ["H06","hero","사형집행인","2:3","a hulking executioner in a black hood, bare scarred arms, massive headsman axe, chains wrapped around the waist, head bowed in penance"],
+ ["P01","portrait","등불지기 초상","1:1","the old pilgrim woman lantern bearer, flame light on her face","H01"],
+ ["P02","portrait","파문당한 기사 초상","1:1","the battered excommunicated knight, scarred face, tired eyes","H02"],
+ ["P03","portrait","역병 의사 초상","1:1","the plague doctor in beaked mask, glass eyes reflecting candlelight","H03"],
+ ["P04","portrait","무덤 도굴꾼 초상","1:1","the hooded grave robber, cloth over mouth, sly eyes","H04"],
+ ["P05","portrait","눈먼 수녀 초상","1:1","the blind nun with linen blindfold, candle held near her face","H05"],
+ ["P06","portrait","사형집행인 초상","1:1","the hooded executioner, eyes glinting through the hood holes","H06"],
+ ["C01","corrupt","등불지기 · 타락","2:3","the old lantern bearer corrupted, her lantern now burning with black fire","H01"],
+ ["C02","corrupt","파문당한 기사 · 타락","2:3","the excommunicated knight corrupted, black ink pouring out of the armor joints","H02"],
+ ["C03","corrupt","역병 의사 · 타락","2:3","the plague doctor corrupted, the beak mask fused into a real bird skull","H03"],
+ ["C04","corrupt","무덤 도굴꾼 · 타락","2:3","the grave robber corrupted, the stolen bones growing out of his own arms","H04"],
+ ["C05","corrupt","눈먼 수녀 · 타락","2:3","the blind nun corrupted, black tears soaking the blindfold, candle melting into her hand","H05"],
+ ["C06","corrupt","사형집행인 · 타락","2:3","the executioner corrupted, the axe fused into his arm, chains moving like snakes","H06"],
+ ["E01","enemy","공허자","2:3","an emaciated hollowed villager, ash-grey skin, empty black eye sockets, rags, both arms reaching hungrily toward a light"],
+ ["E02","enemy","해골나방 떼","2:3","a swarm of large pale moths with skull patterns on their wings, together forming a vague tall humanoid shape"],
+ ["E03","enemy","밀랍 순례자","2:3","a pilgrim whose body has melted into dripping candle wax, face fused shut, dead wicks sprouting from the head"],
+ ["E04","enemy","그림자 사냥개","2:3","a gaunt hound made of black smoke and exposed ribs, long jaws, two tiny glowing pinpoint eyes"],
+ ["E05","enemy","까마귀 사제","2:3","a hunched priest wearing a crow head mask, black feathered vestments, swinging a thurible that leaks black smoke"],
+ ["E06","enemy","이단심문관","2:3","a gaunt fanatic inquisitor in heavy vestments, red-hot iron brand in hand, holy book chained to his wrist"],
+ ["E07","enemy","목매단 시체","2:3","a hanged corpse still moving, broken rope around its neck dragging behind, a small bell tied to its ankle"],
+ ["E08","enemy","뿌리 마녀","2:3","an old witch fused with gnarled tree roots, antlers of dead branches, a lantern made from a skull"],
+ ["E09","enemy","늪의 익사자","2:3","a bloated drowned man covered in reeds and leeches, rising out of black water"],
+ ["E10","enemy","쥐의 왕","2:3","a rat king, a writhing knot of rats with tangled tails, crowned with small bones"],
+ ["E11","enemy","우는 석상","2:3","a weathered stone saint statue come alive, cracked face weeping black tar, broken stone halo"],
+ ["E12","enemy","거머리 기사","2:3","an empty knight's armor filled with leeches, leeches spilling from the visor and joints"],
+ ["B01","boss","나방 어미","2:3","an enormous moth queen with tattered wings spread wide, a pale human-like face, countless eye patterns on the wings, circling a great flame"],
+ ["B02","boss","밀랍 성인","2:3","a colossal saint made of melted candle wax, many faces merged together, hundreds of extinguished wicks across the body, a halo of black smoke"],
+ ["B03","boss","꺼진 태양의 사도","2:3","a towering robed apostle with a black dead-sun disc in place of a head, thin dark rays around it, hands dripping golden light"],
+ ["B04","boss","첫 번째 등불지기","2:3","a giant corrupted ancient lantern bearer, a huge lantern fused into the chest burning with black fire, robes made of ash"],
+ ["K01","key","메인 키아트","BG","a small band of six pilgrims walking on a ridge through endless darkness, one lantern held high as the only light, giant faint shapes of monsters looming in the dark sky behind them",null,true],
+ ["K02","key","타이틀 화면","BG","a single sacred flame in an iron lantern resting on a ruined altar, countless pale moths drawn toward it from the darkness",null,true],
+ ["K03","key","로딩 화면 · 순례","BG","a long line of pilgrim footprints in ash leading toward a distant tiny light on the horizon"],
+ ["K04","key","로딩 화면 · 묘지","BG","a lone lantern hanging from a dead tree above a field of tilted gravestones in fog"],
+ ["BG01","bg","마지막 성소 (거점)","BG","interior of a ruined cathedral sanctuary, a great sacred flame burning in a brazier on the altar, pilgrims' bedrolls, hundreds of small candles",null,true],
+ ["BG02","bg","재의 숲","BG","a forest of burnt black trees under falling ash like snow, a narrow path, faint glowing embers in the ground"],
+ ["BG03","bg","잠긴 묘지","BG","a flooded graveyard, crooked gravestones and crosses half sunk in still black water, mist, dead willow"],
+ ["BG04","bg","무너진 수도원","BG","a collapsed monastery cloister, broken arches, overgrown courtyard, a cracked bell lying on the ground"],
+ ["BG05","bg","밀랍 도시","BG","streets of a medieval city entirely coated in melted white wax, people frozen in wax mid-step, dripping rooftops"],
+ ["BG06","bg","나방 동굴","BG","a vast cave whose walls are covered with sleeping pale moths, cocoons hanging like lanterns, a stone path"],
+ ["BG07","bg","종탑 내부","BG","inside a tall bell tower, wooden stairs spiraling up into darkness, huge bronze bells, hanging ropes"],
+ ["BG08","bg","꺼진 태양의 제단","BG","an enormous ancient altar on a mountain peak beneath a black dead sun in the sky, steps of bone, final battle arena"],
+ ["M01","map","세계 지도","BG","map of a dark ruined kingdom, mountains, dead forests, swamps, ruined cities and a winding pilgrims' road, a small flame symbol at the start"],
+ ["M02","map","지역 지도 (노드)","BG","regional map of a dark forest with winding dotted paths connecting about a dozen small round clearings, empty circles for locations"],
+ ["M03","tile","바닥 타일 · 성당 돌","1:1","cracked cathedral flagstone floor, worn stones, wax drips"],
+ ["M04","tile","바닥 타일 · 재의 흙","1:1","ashy forest dirt floor with dead leaves, roots and pebbles"],
+ ["M05","tile","바닥 타일 · 검은 물","1:1","still black swamp water surface with floating reeds"],
+ ["M06","tile","바닥 타일 · 뼈무덤","1:1","ground covered with scattered bones and grave soil"],
+ ["O01","obj","성화 등불","1:1","an iron reliquary lantern with an ember-gold sacred flame inside"],
+ ["O02","obj","야영 화로","1:1","a small iron brazier campfire with bedrolls around it"],
+ ["O03","obj","성유물함 (보물상자)","1:1","a coffin-shaped reliquary chest with iron bands and a wax-sealed lock"],
+ ["O04","obj","길가 제단","1:1","a wayside stone shrine with a small saint statue and melted candles"],
+ ["O05","obj","철문","1:1","a heavy wooden door with iron studs and chains, set in a stone arch"],
+ ["O06","obj","관","1:1","an old wooden coffin, lid slightly open, darkness inside"],
+ ["O07","obj","뼈 무더기","1:1","a pile of skulls and bones with a rusted sword"],
+ ["O08","obj","촛불 무리","1:1","a cluster of melted candles of various heights on the floor"],
+ ["O09","obj","덫","1:1","a rusty open bear trap"],
+ ["O10","obj","약병 꾸러미","1:1","a leather roll holding small glass vials of tinctures"],
+ ["O11","obj","철창","1:1","a hanging iron gibbet cage, empty"],
+ ["O12","obj","우물","1:1","an old stone well with a rope and bucket, darkness inside"],
+ ["O13","obj","바리케이드","1:1","a wooden barricade of spikes and broken carts"],
+ ["O14","obj","종","1:1","a cracked bronze church bell on a wooden frame"],
+ ["S01","card","스킬 · 등불을 높이","3:4","a hand raising a lantern high, light pushing back clawing shadow hands"],
+ ["S02","card","스킬 · 방패의 맹세","3:4","a knight kneeling behind a battered shield as claws strike it"],
+ ["S03","card","스킬 · 처형","3:4","an executioner's axe falling in a dark arc"],
+ ["S04","card","스킬 · 사혈","3:4","a plague doctor's hand holding a leech over an open wound"],
+ ["S05","card","스킬 · 연막","3:4","a cloud of smoke from a shattered vial, a figure slipping away"],
+ ["S06","card","스킬 · 기도","3:4","a blind nun praying, a halo of candle flames around her head"],
+ ["S07","card","스킬 · 무덤 파기","3:4","a shovel breaking into a grave, a glint of treasure"],
+ ["S08","card","스킬 · 불씨 나누기","3:4","two hands passing a small ember between them"],
+ ["S09","card","스킬 · 쇠사슬","3:4","chains whipping out to bind a monster"],
+ ["S10","card","스킬 · 성수","3:4","holy water splashing on a monster, steam rising"],
+ ["S11","card","스킬 · 희생","3:4","a pilgrim stepping in front of a companion to take a blow"],
+ ["S12","card","스킬 · 낙인","3:4","a red-hot iron brand pressed onto a creature's hide"],
+ ["V01","card","사건 · 갈림길","3:4","a crossroads at night with a hanged man's signpost"],
+ ["V02","card","사건 · 낯선 순례자","3:4","a hooded stranger asking to share the lantern's light"],
+ ["V03","card","사건 · 버려진 아이","3:4","a small child sitting alone in the dark holding a dead candle"],
+ ["V04","card","사건 · 등불이 흔들린다","3:4","a lantern flame bending sideways as if something breathes on it"],
+ ["V05","card","사건 · 속삭이는 우물","3:4","faces in the darkness at the bottom of a well"],
+ ["V06","card","사건 · 굶주림","3:4","pilgrims sharing one last loaf of bread"],
+ ["V07","card","사건 · 거짓 성소","3:4","a beautiful shrine full of candles, shadows of claws behind it"],
+ ["V08","card","사건 · 동료의 악몽","3:4","a sleeping pilgrim with shadow hands reaching from his dreams"],
+ ["I01","card","아이템 · 성유물 손가락","3:4","a saint's mummified finger in a small glass reliquary"],
+ ["I02","card","아이템 · 녹슨 장검","3:4","a rusty longsword with a cloth-wrapped grip"],
+ ["I03","card","아이템 · 기름병","3:4","a clay flask of lamp oil"],
+ ["I04","card","아이템 · 순례자 지팡이","3:4","a pilgrim's staff with a scallop shell and bells"],
+ ["I05","card","아이템 · 기도문 두루마리","3:4","a rolled prayer scroll with a wax seal"],
+ ["I06","card","아이템 · 은 종","3:4","a small silver hand bell"],
+ ["I07","card","아이템 · 가시 왕관","3:4","a crown of iron thorns"],
+ ["I08","card","아이템 · 해골 등불","3:4","a lantern made from a hollowed skull"],
+ ["N01","icon","체력","1:1","an anatomical heart"],
+ ["N02","icon","정신력","1:1","a single open eye"],
+ ["N03","icon","빛","1:1","a candle flame"],
+ ["N04","icon","타락","1:1","a black dripping drop of ink"],
+ ["N05","icon","공격","1:1","a sword pointing down"],
+ ["N06","icon","방어","1:1","a heater shield"],
+ ["N07","icon","이동","1:1","a pilgrim's footprint"],
+ ["N08","icon","출혈","1:1","three falling blood drops"],
+ ["N09","icon","독","1:1","a small vial with a skull"],
+ ["N10","icon","기절","1:1","a cracked skull with stars"],
+ ["N11","icon","은화","1:1","a worn silver coin"],
+ ["N12","icon","식량","1:1","a loaf of bread"],
+ ["N13","icon","열쇠","1:1","an old iron key"],
+ ["N14","icon","죽음","1:1","a skull"],
+ ["N15","icon","기도","1:1","two praying hands"],
+ ["N16","icon","저주","1:1","a broken chain"],
+ ["U01","ui","스킬 카드 프레임","3:4","portrait card frame with a candle motif at the top and a blank banner area at the bottom"],
+ ["U02","ui","적 카드 프레임","3:4","portrait card frame with thorn and bone motif, a small skull at the top"],
+ ["U03","ui","카드 뒷면","3:4","card back design, a central lantern emblem inside concentric engraved rings, filled pattern"],
+ ["U04","ui","초상 프레임","1:1","round portrait medallion frame with small candles around the rim"],
+ ["U05","ui","버튼 판","3:1","wide rectangular button plate of dark iron with rivets"],
+ ["U06","ui","대화 패널","16:9","rectangular dialogue panel of aged parchment with iron corners"],
+ ["U07","ui","체력/빛 게이지 틀","4:1","long horizontal gauge frame with a flame icon slot on the left end"],
+ ["U08","ui","제목 장식","3:1","ornamental heraldic flourish to place behind a game logo, wings of moths on each side"],
+ ["F01","fx","성화 폭발","1:1","a burst of ember-gold sacred fire",null,true],
+ ["F02","fx","신성한 빛기둥","1:1","a vertical beam of golden holy light falling from above",null,true],
+ ["F03","fx","베기 궤적","1:1","a curved sword slash arc trail of light"],
+ ["F04","fx","핏방울 튀김","1:1","a splatter of dark ink-like blood droplets"],
+ ["F05","fx","타락의 연기","1:1","black smoke tendrils with faint gold sparks",null,true],
+ ["F06","fx","나방 입자","1:1","a scattering of small pale moths flying outward"],
+ ["F07","fx","불씨 불꽃","1:1","floating ember sparks rising",null,true],
+ ["F08","fx","잉크 촉수","1:1","ink tendrils spreading outward from the center like roots"],
+ ["F09","fx","봉인 문양","1:1","a glowing engraved magic sigil circle with saint symbols",null,true],
+ ["F10","fx","치유의 빛","1:1","soft golden glowing motes in a gentle spiral"],
+ ["F11","fx","충격파","1:1","a ring shockwave of dust and light"],
+ ["F12","fx","저주 표식","1:1","a floating glowing curse mark rune"]
+];
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+let done = new Set(store.get("lf_done",[]));
+let orient = store.get("lf_orient","L");
+let cat = store.get("lf_cat","all");
+
+function ratio(r){return r==="BG"?(orient==="L"?"16:9":"9:16"):r}
+function full(it){
+  const [id,c,,,subj,ref] = it;
+  return (ref?REFP:"") + subj + ", " + SUF[c] + ", " + CORE;
+}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,1400)}
+function copy(text,label){
+  const fallback=()=>{const c=$("#clip");c.value=text;c.select();try{document.execCommand("copy");toast(label+" 복사됨")}catch(e){toast("복사 실패: 프롬프트를 길게 눌러 복사하세요")}};
+  try{navigator.clipboard.writeText(text).then(()=>toast(label+" 복사됨"),fallback)}catch(e){fallback()}
+}
+
+function renderTabs(){
+  const tabs=$("#tabs");tabs.innerHTML="";
+  const mk=(k,label,n)=>{const b=document.createElement("button");b.type="button";b.className="tab";b.setAttribute("aria-pressed",String(cat===k));b.innerHTML=label+"<small>"+n+"</small>";b.onclick=()=>{cat=k;store.set("lf_cat",k);renderTabs();renderList()};tabs.appendChild(b)};
+  mk("all","전체",ITEMS.length);
+  [1,2,3].forEach(d=>mk("d"+d,d+"일차",ITEMS.filter(i=>CATS.find(c=>c.k===i[1]).day===d).length));
+  CATS.forEach(c=>mk(c.k,c.ko,ITEMS.filter(i=>i[1]===c.k).length));
+}
+function renderProg(){
+  const n=ITEMS.filter(i=>done.has(i[0])).length;
+  $("#fill").style.width=(n/ITEMS.length*100)+"%";
+  $("#progTxt").textContent=n+" / "+ITEMS.length;
+}
+function renderList(){
+  const list=$("#list");list.innerHTML="";
+  const cats = cat==="all"?CATS:cat.startsWith("d")?CATS.filter(c=>"d"+c.day===cat):CATS.filter(c=>c.k===cat);
+  cats.forEach(c=>{
+    const items=ITEMS.filter(i=>i[1]===c.k);
+    const head=document.createElement("div");head.className="catHead";
+    head.innerHTML="<h2>"+c.ko+"</h2><span>"+c.day+"일차 · "+items.length+"개 · "+c.note+"</span>";
+    list.appendChild(head);
+    const box=document.createElement("div");box.className="list";
+    items.forEach(it=>{
+      const [id,,ko,r,subj,ref,vid]=it;
+      const el=document.createElement("article");el.className="item"+(done.has(id)?" done":"");
+      const p=full(it);
+      el.innerHTML=
+        '<label class="chk"><input type="checkbox" id="chk-'+id+'" '+(done.has(id)?"checked":"")+' aria-label="'+ko+' 완료"></label>'+
+        '<div class="meta"><span class="id">'+id+'</span><span class="name">'+ko+'</span><span class="chip">'+ratio(r)+'</span>'+
+        (ref?'<span class="chip ref">REF '+ref+'</span>':'')+(vid?'<span class="chip">🎞 영상</span>':'')+'</div>'+
+        '<div class="subj">'+subj+'</div>'+
+        '<div class="acts"><button class="btn" type="button">복사</button><details><summary>완성 프롬프트 보기</summary><pre></pre></details></div>';
+      el.querySelector("pre").textContent=p;
+      el.querySelector(".btn").onclick=()=>copy(full(it),id);
+      el.querySelector("input").onchange=e=>{e.target.checked?done.add(id):done.delete(id);store.set("lf_done",[...done]);el.classList.toggle("done",e.target.checked);renderProg()};
+      box.appendChild(el);
+    });
+    list.appendChild(box);
+  });
+}
+function setOrient(o){
+  orient=o;store.set("lf_orient",o);
+  $("#oL").setAttribute("aria-pressed",String(o==="L"));$("#oP").setAttribute("aria-pressed",String(o==="P"));
+  $("#bgRatioCell").textContent=o==="L"?"16:9":"9:16";
+  renderList();
+}
+$("#coreTxt").textContent=CORE;$("#negTxt").textContent=NEG;
+$("#copyCore").onclick=()=>copy(CORE,"스타일");
+$("#copyNeg").onclick=()=>copy(NEG,"네거티브");
+$("#oL").onclick=()=>setOrient("L");$("#oP").onclick=()=>setOrient("P");
+renderTabs();renderProg();setOrient(orient);
+</script>
