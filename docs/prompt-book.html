@@ -1,4 +1,4 @@
-<title>마지막 성화 프롬프트북</title>
+<title>묻힌 태양 프롬프트북</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Nanum+Myeongjo:wght@700;800&family=Noto+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -79,17 +79,18 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
 
 <div class="wrap">
   <header>
-    <div class="latin">The Last Flame · Art Bible v0.1</div>
-    <h1>마지막 성화 프롬프트북</h1>
+    <div class="latin">The Buried Sun · Art Bible v0.2</div>
+    <h1>묻힌 태양 프롬프트북</h1>
     <p class="lede">힉스필드 무료 3일 동안 쓸 프롬프트 모음입니다. 각 항목의 <b>복사</b>를 누르면 스타일 문구까지 합쳐진 완성 프롬프트가 복사됩니다. 생성을 마친 항목은 체크해 두세요. 체크 기록은 이 기기에만 저장됩니다.</p>
-    <p class="lede">세계관은 임시로 <b>A안 「꺼져가는 등불」</b>입니다. 태양이 사라진 지 100년, 마지막 성화를 등불에 나눠 든 순례자들이 어둠 속을 걷습니다. 어둠의 것들은 빛에 끌립니다.</p>
+    <p class="lede"><b>“태양은 죽지 않았다. 우리가 묻었다.”</b> 삼백 년 전 여덟 영웅이 해를 땅속에 묻었고, 세상의 모든 그림자가 함께 떨어졌습니다. 이제 그 그림자들이 주인의 비밀을 들고 올라옵니다. 화면 속 금색은 오직 묻힌 해의 조각인 <b>볕돌</b>의 빛입니다.</p>
+    <p class="lede">실제 종교를 떠올리게 하는 단어(성당, 사제, 수녀, 십자가, 기도 등)는 프롬프트에서 모두 뺐습니다. 그래도 십자가 같은 게 나오면 네거티브에 <code>cross, church, religious symbols</code>를 더하세요.</p>
   </header>
 
   <h2>3일 일정</h2>
   <div class="days">
-    <div class="day"><b>1일차 · 스타일 고정 → 주인공 → 적</b><p>처음 1~2시간은 스타일 테스트만 합니다. 기사, 나방 떼, 성당 배경 세 가지를 20~40장 뽑아서 기준 이미지 3~5장을 고르세요. 이후 모든 생성에 이 기준 이미지를 레퍼런스로 넣습니다. 다음으로 주인공 전신 → 초상 → 타락 버전, 그다음 일반 적.</p></div>
-    <div class="day"><b>2일차 · 보스 → 배경 → 지도 → 오브젝트 → 카드 일러스트</b><p>물량이 가장 많은 날입니다. 카드 일러스트는 장당 4장씩 뽑고 바로 고르세요.</p></div>
-    <div class="day"><b>3일차 · 아이콘 → UI 프레임 → 이펙트 → 영상</b><p>영상 크레딧은 마지막 날 몰아서 씁니다. 타이틀 루프, 주인공 대기 루프, 이펙트 루프 순서. 남은 시간에는 빈 곳을 다시 뽑습니다.</p></div>
+    <div class="day"><b>1일차 · 스타일 고정 → 영웅 8명 → 적</b><p>처음 1~2시간은 스타일 테스트만 합니다. H01 기사, E01 떨어진 그림자, BG01 거점 마을 세 가지를 20~40장 뽑아서 기준 이미지 3~5장을 고르세요. 이후 모든 생성에 이 기준 이미지를 레퍼런스로 넣습니다. 다음으로 영웅 전신 → 초상 → 그림자 모습, 그다음 적.</p></div>
+    <div class="day"><b>2일차 · 보스 → 키아트 → 배경 → 전투맵 → 지도 → 카드 일러스트</b><p>물량이 가장 많은 날입니다. 전투맵은 격자 전투의 핵심이니 우선순위가 높습니다. 카드 일러스트는 장당 4장씩 뽑고 바로 고르세요.</p></div>
+    <div class="day"><b>3일차 · 오브젝트 → 아이콘 → UI 프레임 → 이펙트 → 영상</b><p>영상 크레딧은 마지막 날 몰아서 씁니다. 타이틀 루프, 주인공 대기 루프, 이펙트 루프 순서. 남은 시간에는 빈 곳을 다시 뽑습니다.</p></div>
   </div>
 
   <h2>시작 전에 꼭</h2>
@@ -112,7 +113,7 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
     <pre id="negTxt"></pre>
     <button class="btn ghost" id="copyNeg" type="button">네거티브 복사</button>
   </div>
-  <p class="lede">아트 규칙: 동판화풍 흑백에 <b>색은 촛불의 금빛 하나</b>만 씁니다. 빛은 금색, 타락은 잉크처럼 번지는 검정입니다. 그래서 화면에서 금색이 보이면 곧 희망이라는 게 규칙과 그림 양쪽에서 읽힙니다.</p>
+  <p class="lede">아트 규칙: 동판화풍 흑백에 <b>색은 볕돌의 금빛 하나</b>만 씁니다. 빛은 금색, 그림자는 잉크처럼 번지는 검정입니다. 화면에서 금색이 보이면 그곳에 힘과 위험이 함께 있다는 뜻입니다.</p>
 
   <h2>비율과 용도</h2>
   <div class="tbl"><table>
@@ -144,13 +145,14 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
 <div class="toast" id="toast" hidden></div>
 
 <script>
-const CORE = "dark medieval fantasy, copperplate etching and wood engraving style, dense fine crosshatching, inspired by Albrecht Durer and Gustave Dore, near-monochrome sepia and iron-gall black ink, the only color is a warm ember-gold candlelight glow, strong chiaroscuro, grim and somber mood, ancient decaying world, highly detailed";
+const CORE = "dark medieval fantasy, copperplate etching and wood engraving style, dense fine crosshatching, inspired by Albrecht Durer and Gustave Dore, near-monochrome sepia and iron-gall black ink, the only color is a warm ember-gold glow of sunstone light, strong chiaroscuro, grim and somber mood, ancient decaying world, highly detailed";
 const NEG = "text, letters, words, watermark, signature, logo, modern objects, saturated colors, anime, cartoon, chibi, 3d render, plastic, glossy, blurry, lowres, cropped, extra limbs, extra fingers, deformed hands";
 const REFP = "Use the reference image: keep exactly the same character design, face, body and costume. ";
 const SUF = {
   hero:"full body character, standing pose, three-quarter view, centered, whole figure visible head to toe, isolated on a plain flat medium-grey background, no ground, clear readable silhouette, game character concept art",
   portrait:"bust portrait, head and shoulders, centered, facing slightly to the side, plain dark background, game character portrait",
-  corrupt:"full body, same pose, the body partly turning into black ink and dripping shadow, black veins, hollow eyes with faint gold light, isolated on a plain flat medium-grey background, game character concept art",
+  shadow:"full body, same pose and outline, the figure rendered as a living shadow of black ink and smoke, elongated distorted proportions, faint gold eyes, wisps of ink, isolated on a plain flat medium-grey background, game character concept art",
+  arena:"top-down orthographic battle map viewed from directly above, clear walkable floor areas, walls and obstacles readable from above, even composition across the whole image, no grid lines, no characters, game tactical battle map",
   enemy:"full body creature, menacing pose, centered, whole figure visible, isolated on a plain flat medium-grey background, no ground, clear readable silhouette, game monster concept art",
   boss:"colossal boss monster, full body, dramatic low angle, centered, whole figure visible, isolated on a plain flat medium-grey background, epic scale, game boss concept art",
   bg:"wide environment painting, no characters, deep atmospheric perspective, the lower third kept calm and simple for game UI, game background",
@@ -164,160 +166,184 @@ const SUF = {
   key:"cinematic key art, epic composition, strong focal point, game title screen illustration"
 };
 const CATS = [
-  {k:"hero",ko:"주인공",day:1,note:"전신을 먼저 확정하세요. 고른 전신 이미지가 이후 초상·타락·카드 일러스트의 레퍼런스입니다."},
-  {k:"portrait",ko:"초상",day:1,note:"대화창, 파티 선택, 턴 순서 표시에 씁니다."},
-  {k:"corrupt",ko:"타락 버전",day:1,note:"타락 트랙이 끝까지 차면 카드를 뒤집어 보여 줄 모습입니다."},
-  {k:"enemy",ko:"적",day:1,note:"모두 빛에 끌리는 존재들입니다."},
-  {k:"boss",ko:"보스",day:2,note:"챕터 끝의 보스들입니다."},
-  {k:"key",ko:"키아트",day:2,note:"스토어 대표 이미지와 타이틀 화면에 씁니다. 영상 루프의 원본이 됩니다."},
-  {k:"bg",ko:"배경",day:2,note:"하단 1/3은 UI가 덮으니 비워 두는 문구가 들어 있습니다."},
-  {k:"map",ko:"지도",day:2,note:"노드형 지도 배경과 바닥 타일입니다."},
-  {k:"obj",ko:"오브젝트",day:2,note:"맵 위에 올리는 소품입니다."},
-  {k:"card",ko:"카드 일러스트",day:2,note:"스킬·사건·아이템 카드 그림입니다. 프레임은 UI 탭에서 따로 뽑습니다."},
+  {k:"hero",ko:"영웅",day:1,note:"8직업. 전신을 먼저 확정하세요. 고른 전신 이미지가 이후 초상·그림자·카드 일러스트의 레퍼런스입니다."},
+  {k:"portrait",ko:"초상",day:1,note:"파티 선택, 턴 순서, 대화창에 씁니다."},
+  {k:"shadow",ko:"그림자 모습",day:1,note:"그림자 트랙이 6이 되면 카드를 뒤집어 보여 줄 모습입니다."},
+  {k:"enemy",ko:"적",day:1,note:"땅 밑에서 올라온 떨어진 그림자들과 어둠의 것들입니다."},
+  {k:"boss",ko:"보스",day:2,note:"에피소드 끝의 보스들입니다."},
+  {k:"key",ko:"키아트",day:2,note:"스토어 대표 이미지, 타이틀, 로딩 화면. 영상 루프의 원본이 됩니다."},
+  {k:"bg",ko:"장면 배경",day:2,note:"이야기 장면과 거점 화면용. 하단은 UI 자리로 비웁니다."},
+  {k:"arena",ko:"전투맵",day:2,note:"격자 전투용 위에서 내려다본 맵. 격자선은 게임에서 얹습니다."},
+  {k:"map",ko:"지도·타일",day:2,note:"세계 지도와 바닥 타일."},
+  {k:"card",ko:"카드 일러스트",day:2,note:"직업별 스킬, 사건, 아이템 카드 그림. 프레임은 UI 탭에서 따로."},
+  {k:"obj",ko:"오브젝트",day:3,note:"전투맵 위에 올리는 소품. 위에서 약간 비스듬히 본 각도."},
   {k:"icon",ko:"아이콘",day:3,note:"뽑은 뒤 64px로 줄여서 알아볼 수 있는지 꼭 확인하세요."},
   {k:"ui",ko:"UI 프레임",day:3,note:"글자 없이 틀만 뽑습니다."},
-  {k:"fx",ko:"이펙트",day:3,note:"순흑 배경 → 가산 블렌드. 🎞 표시는 영상 루프로 만들 것을 추천합니다."}
+  {k:"fx",ko:"이펙트",day:3,note:"순흑 배경 → 가산 블렌드. 🎞 표시는 영상 루프 추천."}
 ];
 // [id, cat, 한글이름, ratio(BG=방향 따라), subject, refId?, video?]
 const ITEMS = [
- ["H01","hero","등불지기","2:3","a gaunt old pilgrim woman in layered tattered robes, carrying a large iron reliquary lantern on a wooden pole, the ember-gold flame inside lighting her wrinkled determined face"],
- ["H02","hero","파문당한 기사","2:3","a battered knight in dented plate armor, the holy symbol on his breastplate scratched away, torn surcoat, broken greatsword, helmet held under one arm, scarred weary face"],
- ["H03","hero","역병 의사","2:3","a tall plague doctor in a long waxed leather coat, beaked mask with round glass eyes reflecting candlelight, satchel of vials and dried herbs, cane with a small smoking censer"],
- ["H04","hero","무덤 도굴꾼","2:3","a lean young grave robber in a hooded cloak, lower face wrapped in cloth, shovel and crowbar on the back, belt hung with stolen rings and finger bones, sly crouching stance"],
- ["H05","hero","눈먼 수녀","2:3","a young blind nun with a linen blindfold over her eyes, holding a rosary and a single lit candle, prayer ribbons with wax seals on her habit, serene face"],
- ["H06","hero","사형집행인","2:3","a hulking executioner in a black hood, bare scarred arms, massive headsman axe, chains wrapped around the waist, head bowed in penance"],
- ["P01","portrait","등불지기 초상","1:1","the old pilgrim woman lantern bearer, flame light on her face","H01"],
- ["P02","portrait","파문당한 기사 초상","1:1","the battered excommunicated knight, scarred face, tired eyes","H02"],
- ["P03","portrait","역병 의사 초상","1:1","the plague doctor in beaked mask, glass eyes reflecting candlelight","H03"],
- ["P04","portrait","무덤 도굴꾼 초상","1:1","the hooded grave robber, cloth over mouth, sly eyes","H04"],
- ["P05","portrait","눈먼 수녀 초상","1:1","the blind nun with linen blindfold, candle held near her face","H05"],
- ["P06","portrait","사형집행인 초상","1:1","the hooded executioner, eyes glinting through the hood holes","H06"],
- ["C01","corrupt","등불지기 · 타락","2:3","the old lantern bearer corrupted, her lantern now burning with black fire","H01"],
- ["C02","corrupt","파문당한 기사 · 타락","2:3","the excommunicated knight corrupted, black ink pouring out of the armor joints","H02"],
- ["C03","corrupt","역병 의사 · 타락","2:3","the plague doctor corrupted, the beak mask fused into a real bird skull","H03"],
- ["C04","corrupt","무덤 도굴꾼 · 타락","2:3","the grave robber corrupted, the stolen bones growing out of his own arms","H04"],
- ["C05","corrupt","눈먼 수녀 · 타락","2:3","the blind nun corrupted, black tears soaking the blindfold, candle melting into her hand","H05"],
- ["C06","corrupt","사형집행인 · 타락","2:3","the executioner corrupted, the axe fused into his arm, chains moving like snakes","H06"],
- ["E01","enemy","공허자","2:3","an emaciated hollowed villager, ash-grey skin, empty black eye sockets, rags, both arms reaching hungrily toward a light"],
+ ["H01","hero","기사","2:3","a broad-shouldered woman knight in heavy blackened plate armor, a tall tower shield engraved with eight chained seals, a glowing gold sunstone lantern hanging from the shield, short cropped hair, stern scarred face"],
+ ["H02","hero","광전사","2:3","a huge scarred berserker man, bare chest wrapped in heavy chains, wolf pelt on shoulders, a massive two-handed bearded axe, wild braided hair and beard"],
+ ["H03","hero","도적","2:3","a lithe young woman rogue in a dark hooded leather coat, lower face masked, twin curved daggers, belts of lockpicks and pouches, crouching ready stance"],
+ ["H04","hero","사냥꾼","2:3","a weathered shadow hunter man in a long patched greatcoat and wide-brimmed hat, heavy crossbow, bandolier of silver bolts, bounty papers tucked in belt"],
+ ["H05","hero","마법사","2:3","a young woman mage in long layered robes, her bare hands burned and scarred from holding a glowing gold sunstone shard, old books chained to her belt"],
+ ["H06","hero","강령술사","2:3","a pale gaunt necromancer man in tattered black robes, holding a chain that binds a small writhing living shadow, an unlit iron lantern at his hip"],
+ ["H07","hero","연금술사","2:3","a tall alchemist man in a beaked leather mask with round glass eyes and a long waxed coat, belt of glowing gold vials, brass apparatus and tubes on his back"],
+ ["H08","hero","주술사","2:3","an old woman shaman with an antler headdress, bone charms and feathers, face painted with ash, milky white eyes, a hide drum"],
+ ["P01","portrait","기사 초상","1:1","the woman knight, stern scarred face lit by her sunstone lantern","H01"],
+ ["P02","portrait","광전사 초상","1:1","the berserker, braided beard, fierce eyes","H02"],
+ ["P03","portrait","도적 초상","1:1","the hooded rogue woman, masked face, sharp eyes","H03"],
+ ["P04","portrait","사냥꾼 초상","1:1","the shadow hunter under his wide-brimmed hat","H04"],
+ ["P05","portrait","마법사 초상","1:1","the young mage, gold light from the sunstone on her face","H05"],
+ ["P06","portrait","강령술사 초상","1:1","the gaunt necromancer, hollow cheeks","H06"],
+ ["P07","portrait","연금술사 초상","1:1","the alchemist in beaked mask, glass eyes reflecting gold light","H07"],
+ ["P08","portrait","주술사 초상","1:1","the old shaman with antlers, ash-painted face, white eyes","H08"],
+ ["X01","shadow","기사 · 그림자","2:3","the knight as her own living shadow, the tower shield cracked, ink pouring from the seals","H01"],
+ ["X02","shadow","광전사 · 그림자","2:3","the berserker as his own living shadow, chains moving like snakes","H02"],
+ ["X03","shadow","도적 · 그림자","2:3","the rogue as her own living shadow, many extra arms holding daggers","H03"],
+ ["X04","shadow","사냥꾼 · 그림자","2:3","the hunter as his own living shadow, the crossbow fused into his arm","H04"],
+ ["X05","shadow","마법사 · 그림자","2:3","the mage as her own living shadow, the sunstone in her hand burning black","H05"],
+ ["X06","shadow","강령술사 · 그림자","2:3","the necromancer as his own living shadow, now chained by the shadow he once bound","H06"],
+ ["X07","shadow","연금술사 · 그림자","2:3","the alchemist as his own living shadow, the beak mask turned into a real bird skull","H07"],
+ ["X08","shadow","주술사 · 그림자","2:3","the shaman as her own living shadow, the antlers grown huge like dead trees","H08"],
+ ["E01","enemy","떨어진 그림자","2:3","a fallen shade, a humanoid figure made of black ink and smoke, the faint outline of the person it once belonged to, a whispering mouth, reaching toward light"],
  ["E02","enemy","해골나방 떼","2:3","a swarm of large pale moths with skull patterns on their wings, together forming a vague tall humanoid shape"],
- ["E03","enemy","밀랍 순례자","2:3","a pilgrim whose body has melted into dripping candle wax, face fused shut, dead wicks sprouting from the head"],
+ ["E03","enemy","밀랍 인형","2:3","a wax effigy of a dead villager, cracked open, black shadow oozing out of the cracks, dead candle wicks on its head"],
  ["E04","enemy","그림자 사냥개","2:3","a gaunt hound made of black smoke and exposed ribs, long jaws, two tiny glowing pinpoint eyes"],
- ["E05","enemy","까마귀 사제","2:3","a hunched priest wearing a crow head mask, black feathered vestments, swinging a thurible that leaks black smoke"],
- ["E06","enemy","이단심문관","2:3","a gaunt fanatic inquisitor in heavy vestments, red-hot iron brand in hand, holy book chained to his wrist"],
- ["E07","enemy","목매단 시체","2:3","a hanged corpse still moving, broken rope around its neck dragging behind, a small bell tied to its ankle"],
+ ["E05","enemy","빈 자","2:3","a hollow one, an emaciated villager with ash-grey skin and empty black eye sockets, black ink leaking from the mouth"],
+ ["E06","enemy","그림자 병사","2:3","the shadow of a soldier from an ancient war, rusted armor outlined in ink, a broken spear, no face inside the helmet"],
+ ["E07","enemy","목매단 자","2:3","a hanged corpse still moving, broken rope around its neck dragging behind, a small bell tied to its ankle"],
  ["E08","enemy","뿌리 마녀","2:3","an old witch fused with gnarled tree roots, antlers of dead branches, a lantern made from a skull"],
  ["E09","enemy","늪의 익사자","2:3","a bloated drowned man covered in reeds and leeches, rising out of black water"],
  ["E10","enemy","쥐의 왕","2:3","a rat king, a writhing knot of rats with tangled tails, crowned with small bones"],
- ["E11","enemy","우는 석상","2:3","a weathered stone saint statue come alive, cracked face weeping black tar, broken stone halo"],
- ["E12","enemy","거머리 기사","2:3","an empty knight's armor filled with leeches, leeches spilling from the visor and joints"],
- ["B01","boss","나방 어미","2:3","an enormous moth queen with tattered wings spread wide, a pale human-like face, countless eye patterns on the wings, circling a great flame"],
- ["B02","boss","밀랍 성인","2:3","a colossal saint made of melted candle wax, many faces merged together, hundreds of extinguished wicks across the body, a halo of black smoke"],
- ["B03","boss","꺼진 태양의 사도","2:3","a towering robed apostle with a black dead-sun disc in place of a head, thin dark rays around it, hands dripping golden light"],
- ["B04","boss","첫 번째 등불지기","2:3","a giant corrupted ancient lantern bearer, a huge lantern fused into the chest burning with black fire, robes made of ash"],
- ["K01","key","메인 키아트","BG","a small band of six pilgrims walking on a ridge through endless darkness, one lantern held high as the only light, giant faint shapes of monsters looming in the dark sky behind them",null,true],
- ["K02","key","타이틀 화면","BG","a single sacred flame in an iron lantern resting on a ruined altar, countless pale moths drawn toward it from the darkness",null,true],
- ["K03","key","로딩 화면 · 순례","BG","a long line of pilgrim footprints in ash leading toward a distant tiny light on the horizon"],
- ["K04","key","로딩 화면 · 묘지","BG","a lone lantern hanging from a dead tree above a field of tilted gravestones in fog"],
- ["BG01","bg","마지막 성소 (거점)","BG","interior of a ruined cathedral sanctuary, a great sacred flame burning in a brazier on the altar, pilgrims' bedrolls, hundreds of small candles",null,true],
+ ["E11","enemy","우는 석상","2:3","a weathered stone statue of an ancient hero come alive, cracked face weeping black tar, broken stone chains"],
+ ["E12","enemy","서약 집행관","2:3","a gaunt fanatic enforcer of the oath in heavy layered robes and an iron mask, a red-hot iron brand in hand, a chained book of oaths at the wrist"],
+ ["B01","boss","나방의 어미","2:3","an enormous moth queen with tattered wings spread wide, a pale human-like face, countless eye patterns on the wings, circling a sunstone light"],
+ ["B02","boss","밀랍 거인","2:3","a colossal giant made of melted wax, many human faces pressed inside its body, trapped shadows writhing within the translucent wax"],
+ ["B03","boss","영주의 그림자","2:3","a towering shadow of a lord wearing a broken crown, a long cloak of ink, a dagger dripping gold light, its mouth sewn shut with gold thread"],
+ ["B04","boss","광맥의 심장","2:3","a colossal creature of black rock with glowing gold sunstone veins pulsing like blood vessels, rising from a mine shaft"],
+ ["K01","key","메인 키아트","BG","eight figures standing at the edge of a vast chasm holding sunstone lanterns, their long shadows stretching down into the abyss, a faint golden glow deep below",null,true],
+ ["K02","key","타이틀 화면","BG","an enormous dim golden sun buried deep beneath cracked earth, bound by eight colossal chains, golden light seeping up through fissures to a lone lantern on the surface",null,true],
+ ["K03","key","로딩 · 그림자의 귀환","BG","countless ink-black shadows climbing up out of a crack in the ground toward a distant village"],
+ ["K04","key","로딩 · 긴 저녁","BG","a lone traveler with a lantern on a road under an endless dusk sky, no shadow on the ground"],
+ ["BG01","bg","거점 마을","BG","a fortified village at eternal dusk, a tall iron tower in the center holding a large sunstone beacon, crooked roofs, walls of sharpened stakes",null,true],
  ["BG02","bg","재의 숲","BG","a forest of burnt black trees under falling ash like snow, a narrow path, faint glowing embers in the ground"],
- ["BG03","bg","잠긴 묘지","BG","a flooded graveyard, crooked gravestones and crosses half sunk in still black water, mist, dead willow"],
- ["BG04","bg","무너진 수도원","BG","a collapsed monastery cloister, broken arches, overgrown courtyard, a cracked bell lying on the ground"],
- ["BG05","bg","밀랍 도시","BG","streets of a medieval city entirely coated in melted white wax, people frozen in wax mid-step, dripping rooftops"],
- ["BG06","bg","나방 동굴","BG","a vast cave whose walls are covered with sleeping pale moths, cocoons hanging like lanterns, a stone path"],
- ["BG07","bg","종탑 내부","BG","inside a tall bell tower, wooden stairs spiraling up into darkness, huge bronze bells, hanging ropes"],
- ["BG08","bg","꺼진 태양의 제단","BG","an enormous ancient altar on a mountain peak beneath a black dead sun in the sky, steps of bone, final battle arena"],
- ["M01","map","세계 지도","BG","map of a dark ruined kingdom, mountains, dead forests, swamps, ruined cities and a winding pilgrims' road, a small flame symbol at the start"],
- ["M02","map","지역 지도 (노드)","BG","regional map of a dark forest with winding dotted paths connecting about a dozen small round clearings, empty circles for locations"],
- ["M03","tile","바닥 타일 · 성당 돌","1:1","cracked cathedral flagstone floor, worn stones, wax drips"],
- ["M04","tile","바닥 타일 · 재의 흙","1:1","ashy forest dirt floor with dead leaves, roots and pebbles"],
- ["M05","tile","바닥 타일 · 검은 물","1:1","still black swamp water surface with floating reeds"],
- ["M06","tile","바닥 타일 · 뼈무덤","1:1","ground covered with scattered bones and grave soil"],
- ["O01","obj","성화 등불","1:1","an iron reliquary lantern with an ember-gold sacred flame inside"],
+ ["BG03","bg","잠긴 묘지","BG","a flooded graveyard, crooked stone grave markers half sunk in still black water, mist, a dead willow"],
+ ["BG04","bg","무너진 봉인소","BG","ruins of an ancient stone fortress built over a sealed shaft, broken colossal chains, eight carved pillars"],
+ ["BG05","bg","밀랍 마을","BG","a village where the dead are covered in wax, rows of wax effigies standing in the street, dripping roofs"],
+ ["BG06","bg","검은 우물","BG","an old village well whose water has turned black, ink-like darkness spilling over the stone rim"],
+ ["BG07","bg","볕돌 광산","BG","a deep mine shaft with glowing golden veins in black rock, wooden scaffolding, rails and mine carts"],
+ ["BG08","bg","첫 번째 봉인","BG","a vast underground cavern with a colossal sealed stone gate wrapped in chains, golden light leaking through its cracks"],
+ ["BG09","bg","영주의 대전","BG","the great hall of a lord's castle, a long table, an empty high seat, cold hearth, banners torn"],
+ ["BG10","bg","종탑 마을","BG","a foggy village square with a silent bell tower, ropes cut, villagers' doors barred"],
+ ["A01","arena","전투 · 마을 광장","BG","a village square with a well in the center, carts, crates, low stone walls and houses at the edges"],
+ ["A02","arena","전투 · 재의 숲","BG","a clearing in a burnt forest, fallen logs, ash patches, a narrow path through dead trees"],
+ ["A03","arena","전투 · 잠긴 묘지","BG","a graveyard partly flooded, grave markers, shallow and deep black water areas, a crypt entrance"],
+ ["A04","arena","전투 · 밀랍 거리","BG","a narrow street lined with wax effigies, puddles of melted wax, a collapsed wall"],
+ ["A05","arena","전투 · 광산 갱도","BG","branching mine tunnels, rails, mine carts, glowing gold veins on the walls, a deep pit"],
+ ["A06","arena","전투 · 영주의 대전","BG","a castle hall with pillars, a long table, a raised dais, side doors"],
+ ["A07","arena","전투 · 등탑 꼭대기","BG","the round stone top of a beacon tower, a large sunstone brazier in the center, broken parapets"],
+ ["A08","arena","전투 · 봉인의 문","BG","a vast cavern floor before a giant chained gate, chasms on both sides, stone bridges"],
+ ["M01","map","세계 지도","BG","map of a dark continent at eternal dusk, mountains, dead forests, swamps, mining towns and a great chasm in the center, eight seal symbols scattered across the land"],
+ ["M02","tile","바닥 타일 · 돌바닥","1:1","worn cracked stone flagstone floor"],
+ ["M03","tile","바닥 타일 · 재의 흙","1:1","ashy forest dirt floor with dead leaves, roots and pebbles"],
+ ["M04","tile","바닥 타일 · 검은 물","1:1","still black swamp water surface with floating reeds"],
+ ["M05","tile","바닥 타일 · 광산 바위","1:1","black rock floor with thin glowing gold veins"],
+ ["M06","tile","바닥 타일 · 나무 마루","1:1","old dark wooden floorboards, worn and stained"],
+ ["S01","card","기사 · 방패 세우기","3:4","a knight bracing behind a tower shield as shadow claws strike it"],
+ ["S02","card","기사 · 등불 들어 올리기","3:4","a gauntleted hand raising a sunstone lantern high, light pushing back shadow hands"],
+ ["S03","card","광전사 · 회오리 도끼","3:4","a berserker spinning a huge axe, shadows torn apart around him"],
+ ["S04","card","광전사 · 피의 분노","3:4","a berserker roaring, blood running down his chest, eyes blazing"],
+ ["S05","card","도적 · 그림자 밟기","3:4","a rogue stepping out of darkness behind a monster, dagger raised"],
+ ["S06","card","도적 · 자물쇠 따기","3:4","nimble hands picking an iron lock"],
+ ["S07","card","사냥꾼 · 은 화살","3:4","a silver crossbow bolt piercing a shadow"],
+ ["S08","card","사냥꾼 · 덫","3:4","a monster's leg caught in a spiked iron trap"],
+ ["S09","card","마법사 · 볕불","3:4","a burst of gold fire erupting from a sunstone held in a burned hand"],
+ ["S10","card","마법사 · 빛의 장벽","3:4","a curved wall of gold light holding back a swarm of moths"],
+ ["S11","card","강령술사 · 그림자 사슬","3:4","black chains of shadow wrapping around a monster"],
+ ["S12","card","강령술사 · 망자 일으키기","3:4","shadow hands rising from the ground"],
+ ["S13","card","연금술사 · 치유 물약","3:4","a glowing gold potion being poured onto a wound"],
+ ["S14","card","연금술사 · 폭탄","3:4","a glass bomb shattering into a cloud of fire"],
+ ["S15","card","주술사 · 북소리","3:4","a hand striking a hide drum, rings of sound in the air"],
+ ["S16","card","주술사 · 저주","3:4","a bone charm glowing as a curse mark appears on a monster"],
+ ["V01","card","사건 · 돌아온 그림자","3:4","a man staring in horror at his own shadow appearing on the wall under lantern light"],
+ ["V02","card","사건 · 낯선 길손","3:4","a hooded stranger with no shadow asking to share the lantern's light"],
+ ["V03","card","사건 · 버려진 아이","3:4","a small child sitting alone in the dark holding a dead lantern"],
+ ["V04","card","사건 · 등불이 흔들린다","3:4","a lantern flame bending sideways as if something breathes on it"],
+ ["V05","card","사건 · 속삭이는 우물","3:4","faces in the darkness at the bottom of a well"],
+ ["V06","card","사건 · 굶주림","3:4","travelers sharing one last loaf of bread by a small fire"],
+ ["V07","card","사건 · 비밀의 고백","3:4","a figure whispering into another's ear while their shadow listens"],
+ ["V08","card","사건 · 갈라진 땅","3:4","a crack opening in a road, gold light and black hands coming out"],
+ ["I01","card","아이템 · 볕돌 조각","3:4","a raw glowing gold sunstone crystal shard"],
+ ["I02","card","아이템 · 녹슨 장검","3:4","a rusty longsword with a cloth-wrapped grip"],
+ ["I03","card","아이템 · 등불 기름","3:4","a clay flask of lantern oil"],
+ ["I04","card","아이템 · 은 화살촉","3:4","a handful of silver arrowheads"],
+ ["I05","card","아이템 · 맹세 두루마리","3:4","a rolled oath scroll with a wax seal and a chain mark"],
+ ["I06","card","아이템 · 은 종","3:4","a small silver hand bell"],
+ ["I07","card","아이템 · 사슬 장갑","3:4","a heavy gauntlet wrapped in chain"],
+ ["I08","card","아이템 · 해골 등불","3:4","a lantern made from a hollowed skull"],
+ ["O01","obj","볕돌 등불","1:1","an iron lantern with a glowing gold sunstone inside"],
  ["O02","obj","야영 화로","1:1","a small iron brazier campfire with bedrolls around it"],
- ["O03","obj","성유물함 (보물상자)","1:1","a coffin-shaped reliquary chest with iron bands and a wax-sealed lock"],
- ["O04","obj","길가 제단","1:1","a wayside stone shrine with a small saint statue and melted candles"],
+ ["O03","obj","보물 상자","1:1","an iron-bound wooden chest with a heavy lock"],
+ ["O04","obj","봉인석","1:1","a carved standing stone wrapped in chains, eight symbols"],
  ["O05","obj","철문","1:1","a heavy wooden door with iron studs and chains, set in a stone arch"],
  ["O06","obj","관","1:1","an old wooden coffin, lid slightly open, darkness inside"],
  ["O07","obj","뼈 무더기","1:1","a pile of skulls and bones with a rusted sword"],
- ["O08","obj","촛불 무리","1:1","a cluster of melted candles of various heights on the floor"],
+ ["O08","obj","양초 무리","1:1","a cluster of melted candles of various heights"],
  ["O09","obj","덫","1:1","a rusty open bear trap"],
- ["O10","obj","약병 꾸러미","1:1","a leather roll holding small glass vials of tinctures"],
+ ["O10","obj","약병 꾸러미","1:1","a leather roll holding small glass vials"],
  ["O11","obj","철창","1:1","a hanging iron gibbet cage, empty"],
- ["O12","obj","우물","1:1","an old stone well with a rope and bucket, darkness inside"],
+ ["O12","obj","우물","1:1","an old stone well with a rope and bucket, black water"],
  ["O13","obj","바리케이드","1:1","a wooden barricade of spikes and broken carts"],
- ["O14","obj","종","1:1","a cracked bronze church bell on a wooden frame"],
- ["S01","card","스킬 · 등불을 높이","3:4","a hand raising a lantern high, light pushing back clawing shadow hands"],
- ["S02","card","스킬 · 방패의 맹세","3:4","a knight kneeling behind a battered shield as claws strike it"],
- ["S03","card","스킬 · 처형","3:4","an executioner's axe falling in a dark arc"],
- ["S04","card","스킬 · 사혈","3:4","a plague doctor's hand holding a leech over an open wound"],
- ["S05","card","스킬 · 연막","3:4","a cloud of smoke from a shattered vial, a figure slipping away"],
- ["S06","card","스킬 · 기도","3:4","a blind nun praying, a halo of candle flames around her head"],
- ["S07","card","스킬 · 무덤 파기","3:4","a shovel breaking into a grave, a glint of treasure"],
- ["S08","card","스킬 · 불씨 나누기","3:4","two hands passing a small ember between them"],
- ["S09","card","스킬 · 쇠사슬","3:4","chains whipping out to bind a monster"],
- ["S10","card","스킬 · 성수","3:4","holy water splashing on a monster, steam rising"],
- ["S11","card","스킬 · 희생","3:4","a pilgrim stepping in front of a companion to take a blow"],
- ["S12","card","스킬 · 낙인","3:4","a red-hot iron brand pressed onto a creature's hide"],
- ["V01","card","사건 · 갈림길","3:4","a crossroads at night with a hanged man's signpost"],
- ["V02","card","사건 · 낯선 순례자","3:4","a hooded stranger asking to share the lantern's light"],
- ["V03","card","사건 · 버려진 아이","3:4","a small child sitting alone in the dark holding a dead candle"],
- ["V04","card","사건 · 등불이 흔들린다","3:4","a lantern flame bending sideways as if something breathes on it"],
- ["V05","card","사건 · 속삭이는 우물","3:4","faces in the darkness at the bottom of a well"],
- ["V06","card","사건 · 굶주림","3:4","pilgrims sharing one last loaf of bread"],
- ["V07","card","사건 · 거짓 성소","3:4","a beautiful shrine full of candles, shadows of claws behind it"],
- ["V08","card","사건 · 동료의 악몽","3:4","a sleeping pilgrim with shadow hands reaching from his dreams"],
- ["I01","card","아이템 · 성유물 손가락","3:4","a saint's mummified finger in a small glass reliquary"],
- ["I02","card","아이템 · 녹슨 장검","3:4","a rusty longsword with a cloth-wrapped grip"],
- ["I03","card","아이템 · 기름병","3:4","a clay flask of lamp oil"],
- ["I04","card","아이템 · 순례자 지팡이","3:4","a pilgrim's staff with a scallop shell and bells"],
- ["I05","card","아이템 · 기도문 두루마리","3:4","a rolled prayer scroll with a wax seal"],
- ["I06","card","아이템 · 은 종","3:4","a small silver hand bell"],
- ["I07","card","아이템 · 가시 왕관","3:4","a crown of iron thorns"],
- ["I08","card","아이템 · 해골 등불","3:4","a lantern made from a hollowed skull"],
+ ["O14","obj","종","1:1","a cracked bronze bell on a wooden frame"],
+ ["O15","obj","볕돌 광석","1:1","a cluster of black rock with glowing gold sunstone crystals"],
+ ["O16","obj","밀랍 인형 (정지)","1:1","a standing wax effigy of a person, still and unmoving"],
  ["N01","icon","체력","1:1","an anatomical heart"],
- ["N02","icon","정신력","1:1","a single open eye"],
- ["N03","icon","빛","1:1","a candle flame"],
- ["N04","icon","타락","1:1","a black dripping drop of ink"],
- ["N05","icon","공격","1:1","a sword pointing down"],
- ["N06","icon","방어","1:1","a heater shield"],
- ["N07","icon","이동","1:1","a pilgrim's footprint"],
- ["N08","icon","출혈","1:1","three falling blood drops"],
- ["N09","icon","독","1:1","a small vial with a skull"],
- ["N10","icon","기절","1:1","a cracked skull with stars"],
- ["N11","icon","은화","1:1","a worn silver coin"],
- ["N12","icon","식량","1:1","a loaf of bread"],
- ["N13","icon","열쇠","1:1","an old iron key"],
- ["N14","icon","죽음","1:1","a skull"],
- ["N15","icon","기도","1:1","two praying hands"],
+ ["N02","icon","그림자","1:1","a human silhouette of black ink"],
+ ["N03","icon","빛","1:1","a sunstone crystal radiating light"],
+ ["N04","icon","공격","1:1","a sword pointing down"],
+ ["N05","icon","방어","1:1","a tower shield"],
+ ["N06","icon","이동","1:1","a footprint"],
+ ["N07","icon","출혈","1:1","three falling blood drops"],
+ ["N08","icon","독","1:1","a small vial with a skull"],
+ ["N09","icon","기절","1:1","a cracked skull with stars"],
+ ["N10","icon","은화","1:1","a worn silver coin"],
+ ["N11","icon","식량","1:1","a loaf of bread"],
+ ["N12","icon","열쇠","1:1","an old iron key"],
+ ["N13","icon","죽음","1:1","a skull"],
+ ["N14","icon","등불 연료","1:1","a drop of oil with a small flame"],
+ ["N15","icon","봉인","1:1","a padlock wrapped in chain"],
  ["N16","icon","저주","1:1","a broken chain"],
- ["U01","ui","스킬 카드 프레임","3:4","portrait card frame with a candle motif at the top and a blank banner area at the bottom"],
+ ["N17","icon","경험치","1:1","a rising gold spark"],
+ ["N18","icon","비밀","1:1","a closed eye sewn shut"],
+ ["U01","ui","스킬 카드 프레임","3:4","portrait card frame divided into an upper and a lower panel, a sun motif on top and a moon-shadow motif on the bottom"],
  ["U02","ui","적 카드 프레임","3:4","portrait card frame with thorn and bone motif, a small skull at the top"],
- ["U03","ui","카드 뒷면","3:4","card back design, a central lantern emblem inside concentric engraved rings, filled pattern"],
- ["U04","ui","초상 프레임","1:1","round portrait medallion frame with small candles around the rim"],
+ ["U03","ui","카드 뒷면","3:4","card back design, a buried sun emblem bound by eight chains inside concentric engraved rings, filled pattern"],
+ ["U04","ui","초상 프레임","1:1","round portrait medallion frame with eight small chain links around the rim"],
  ["U05","ui","버튼 판","3:1","wide rectangular button plate of dark iron with rivets"],
  ["U06","ui","대화 패널","16:9","rectangular dialogue panel of aged parchment with iron corners"],
- ["U07","ui","체력/빛 게이지 틀","4:1","long horizontal gauge frame with a flame icon slot on the left end"],
- ["U08","ui","제목 장식","3:1","ornamental heraldic flourish to place behind a game logo, wings of moths on each side"],
- ["F01","fx","성화 폭발","1:1","a burst of ember-gold sacred fire",null,true],
- ["F02","fx","신성한 빛기둥","1:1","a vertical beam of golden holy light falling from above",null,true],
+ ["U07","ui","게이지 틀","4:1","long horizontal gauge frame with a round icon slot on the left end"],
+ ["U08","ui","로고 장식","3:1","ornamental flourish to place behind a game logo, chains and a half-buried sun"],
+ ["F01","fx","볕불 폭발","1:1","a burst of ember-gold fire",null,true],
+ ["F02","fx","빛기둥","1:1","a vertical beam of golden light rising from the ground",null,true],
  ["F03","fx","베기 궤적","1:1","a curved sword slash arc trail of light"],
  ["F04","fx","핏방울 튀김","1:1","a splatter of dark ink-like blood droplets"],
- ["F05","fx","타락의 연기","1:1","black smoke tendrils with faint gold sparks",null,true],
+ ["F05","fx","그림자 연기","1:1","black smoke tendrils with faint gold sparks",null,true],
  ["F06","fx","나방 입자","1:1","a scattering of small pale moths flying outward"],
- ["F07","fx","불씨 불꽃","1:1","floating ember sparks rising",null,true],
+ ["F07","fx","불씨","1:1","floating ember sparks rising",null,true],
  ["F08","fx","잉크 촉수","1:1","ink tendrils spreading outward from the center like roots"],
- ["F09","fx","봉인 문양","1:1","a glowing engraved magic sigil circle with saint symbols",null,true],
+ ["F09","fx","봉인 문양","1:1","a glowing engraved sigil circle of eight interlocking chains",null,true],
  ["F10","fx","치유의 빛","1:1","soft golden glowing motes in a gentle spiral"],
  ["F11","fx","충격파","1:1","a ring shockwave of dust and light"],
- ["F12","fx","저주 표식","1:1","a floating glowing curse mark rune"]
+ ["F12","fx","저주 표식","1:1","a floating glowing curse mark"]
 ];
-
 const $ = s => document.querySelector(s);
 const store = {
   get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},
   set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 };
-let done = new Set(store.get("lf_done",[]));
+let done = new Set(store.get("lf_done2",[]));
 let orient = store.get("lf_orient2","P");
 let cat = store.get("lf_cat","all");
 
@@ -366,7 +392,7 @@ function renderList(){
         '<div class="acts"><button class="btn" type="button">복사</button><details><summary>완성 프롬프트 보기</summary><pre></pre></details></div>';
       el.querySelector("pre").textContent=p;
       el.querySelector(".btn").onclick=()=>copy(full(it),id);
-      el.querySelector("input").onchange=e=>{e.target.checked?done.add(id):done.delete(id);store.set("lf_done",[...done]);el.classList.toggle("done",e.target.checked);renderProg()};
+      el.querySelector("input").onchange=e=>{e.target.checked?done.add(id):done.delete(id);store.set("lf_done2",[...done]);el.classList.toggle("done",e.target.checked);renderProg()};
       box.appendChild(el);
     });
     list.appendChild(box);
