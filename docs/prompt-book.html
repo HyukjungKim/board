@@ -120,7 +120,7 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
     <tbody>
       <tr><td>주인공·적·보스 전신</td><td>2:3</td><td>단색 회색</td><td>배경 제거</td></tr>
       <tr><td>초상·아이콘·오브젝트</td><td>1:1</td><td>회색 / 아이콘은 검정</td><td>배경 제거, 축소 테스트</td></tr>
-      <tr><td>배경·키아트</td><td id="bgRatioCell">16:9</td><td>장면 전체</td><td>UI 들어갈 자리 비우기</td></tr>
+      <tr><td>배경·키아트</td><td id="bgRatioCell">9:16</td><td>장면 전체</td><td>UI 들어갈 자리 비우기</td></tr>
       <tr><td>카드 일러스트</td><td>3:4</td><td>장면 전체</td><td>프레임 안에 크롭</td></tr>
       <tr><td>지도 타일</td><td>1:1</td><td>이음새 없는 질감</td><td>타일링 확인</td></tr>
       <tr><td>이펙트</td><td>1:1</td><td>순흑</td><td>가산 블렌드, 영상은 프레임 추출</td></tr>
@@ -133,8 +133,8 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
       <div class="track"><div class="fill" id="fill"></div></div>
       <span id="progTxt">0 / 0</span>
       <div class="orient" role="group" aria-label="화면 방향">
-        <button type="button" id="oL" aria-pressed="true">가로</button>
-        <button type="button" id="oP" aria-pressed="false">세로</button>
+        <button type="button" id="oL" aria-pressed="false">가로</button>
+        <button type="button" id="oP" aria-pressed="true">세로</button>
       </div>
     </div>
   </div>
@@ -318,13 +318,14 @@ const store = {
   set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 };
 let done = new Set(store.get("lf_done",[]));
-let orient = store.get("lf_orient","L");
+let orient = store.get("lf_orient2","P");
 let cat = store.get("lf_cat","all");
 
 function ratio(r){return r==="BG"?(orient==="L"?"16:9":"9:16"):r}
 function full(it){
   const [id,c,,,subj,ref] = it;
-  return (ref?REFP:"") + subj + ", " + SUF[c] + ", " + CORE;
+  const tall = (it[3]==="BG" && orient==="P") ? ", tall vertical composition for a smartphone screen, sky and depth in the upper half" : "";
+  return (ref?REFP:"") + subj + ", " + SUF[c] + tall + ", " + CORE;
 }
 function toast(msg){const t=$("#toast");t.textContent=msg;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>t.hidden=true,1400)}
 function copy(text,label){
@@ -372,7 +373,7 @@ function renderList(){
   });
 }
 function setOrient(o){
-  orient=o;store.set("lf_orient",o);
+  orient=o;store.set("lf_orient2",o);
   $("#oL").setAttribute("aria-pressed",String(o==="L"));$("#oP").setAttribute("aria-pressed",String(o==="P"));
   $("#bgRatioCell").textContent=o==="L"?"16:9":"9:16";
   renderList();
