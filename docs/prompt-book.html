@@ -113,7 +113,7 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
     <pre id="negTxt"></pre>
     <button class="btn ghost" id="copyNeg" type="button">네거티브 복사</button>
   </div>
-  <p class="lede">아트 규칙: 동판화풍 흑백에 <b>색은 볕돌의 금빛 하나</b>만 씁니다. 빛은 금색, 그림자는 잉크처럼 번지는 검정입니다. 화면에서 금색이 보이면 그곳에 힘과 위험이 함께 있다는 뜻입니다.</p>
+  <p class="lede">색 규칙: <b>세상은 차갑고 다채롭다. 따뜻한 것은 볕돌뿐.</b> 하늘은 진홍·보라·짙은 남색의 해 질 녘, 땅은 청회색·이끼 초록·녹슨 적갈색, 옷은 쪽빛·포도주색. 보통 불은 창백한 회백색, 금빛은 오직 볕돌, 그림자는 가장자리가 보랏빛인 잉크 검정입니다.</p>
 
   <h2>비율과 용도</h2>
   <div class="tbl"><table>
@@ -145,7 +145,7 @@ details pre{font-family:var(--f-mono);font-size:.72rem;white-space:pre-wrap;word
 <div class="toast" id="toast" hidden></div>
 
 <script>
-const CORE = "dark medieval fantasy, copperplate etching and wood engraving style, dense fine crosshatching, inspired by Albrecht Durer and Gustave Dore, near-monochrome sepia and iron-gall black ink, the only color is a warm ember-gold glow of sunstone light, strong chiaroscuro, grim and somber mood, ancient decaying world, highly detailed";
+const CORE = "dark medieval fantasy, richly detailed painterly illustration, a world of eternal dusk, cold but colorful palette: bruised crimson, violet and deep indigo sky, frosted blue-grey stone, moss green, rust red-brown, indigo and wine-colored cloth, ordinary fire and candlelight are pale silver-white and cold, the only warm golden light comes from glowing sunstone, ink-black shadows with violet edges, strong contrast, grim and somber mood, ancient decaying world";
 const NEG = "text, letters, words, watermark, signature, logo, modern objects, saturated colors, anime, cartoon, chibi, 3d render, plastic, glossy, blurry, lowres, cropped, extra limbs, extra fingers, deformed hands";
 const REFP = "Use the reference image: keep exactly the same character design, face, body and costume. ";
 const SUF = {
@@ -160,7 +160,7 @@ const SUF = {
   tile:"seamless tileable texture, top-down orthographic view, even lighting, no perspective, no objects in center, game tile",
   obj:"single game prop, centered, slight top-down three-quarter view, isolated on a plain flat medium-grey background, no ground shadow, clear silhouette",
   card:"illustration for a game card, single clear focal subject in the center, darkened vignette edges, no frame, no border",
-  icon:"game UI icon, one bold simple symbol, centered, thick engraved lines, readable at very small size, ember-gold symbol on a pure black background",
+  icon:"game UI icon, one bold simple symbol, centered, bold clean shapes, readable at very small size, ember-gold symbol on a pure black background",
   fx:"visual effect only, no characters, no ground, centered, glowing on a pure black background, game VFX",
   ui:"ornate game UI frame, empty center, perfectly symmetrical, flat front view, engraved dark iron and aged bone ornament, on a pure black background, no text",
   key:"cinematic key art, epic composition, strong focal point, game title screen illustration"
@@ -188,9 +188,9 @@ const ITEMS = [
  ["H02","hero","광전사","2:3","a huge scarred berserker man, bare chest wrapped in heavy chains, wolf pelt on shoulders, a massive two-handed bearded axe, wild braided hair and beard"],
  ["H03","hero","도적","2:3","a lithe young woman rogue in a dark hooded leather coat, lower face masked, twin curved daggers, belts of lockpicks and pouches, crouching ready stance"],
  ["H04","hero","사냥꾼","2:3","a weathered shadow hunter man in a long patched greatcoat and wide-brimmed hat, heavy crossbow, bandolier of silver bolts, bounty papers tucked in belt"],
- ["H05","hero","마법사","2:3","a young woman mage in long layered robes, her bare hands burned and scarred from holding a glowing gold sunstone shard, old books chained to her belt"],
+ ["H05","hero","마법사","2:3","a young woman mage in long layered robes, old burn scars across both hands and wrists, a glowing gold sunstone shard floating above her palm, old books chained to her belt"],
  ["H06","hero","강령술사","2:3","a pale gaunt necromancer man in tattered black robes, holding a chain that binds a small writhing living shadow, an unlit iron lantern at his hip"],
- ["H07","hero","연금술사","2:3","a tall alchemist man in a beaked leather mask with round glass eyes and a long waxed coat, belt of glowing gold vials, brass apparatus and tubes on his back"],
+ ["H07","hero","연금술사","2:3","a tall alchemist man, the lower half of his face veiled with fine chain mesh, several layered stained aprons, elbow-length gloves, bandoliers of corked vials glowing pale white and gold across chest and waist, a brass hand mortar hanging at the hip"],
  ["H08","hero","주술사","2:3","an old woman shaman with an antler headdress, bone charms and feathers, face painted with ash, milky white eyes, a hide drum"],
  ["P01","portrait","기사 초상","1:1","the woman knight, stern scarred face lit by her sunstone lantern","H01"],
  ["P02","portrait","광전사 초상","1:1","the berserker, braided beard, fierce eyes","H02"],
@@ -198,7 +198,7 @@ const ITEMS = [
  ["P04","portrait","사냥꾼 초상","1:1","the shadow hunter under his wide-brimmed hat","H04"],
  ["P05","portrait","마법사 초상","1:1","the young mage, gold light from the sunstone on her face","H05"],
  ["P06","portrait","강령술사 초상","1:1","the gaunt necromancer, hollow cheeks","H06"],
- ["P07","portrait","연금술사 초상","1:1","the alchemist in beaked mask, glass eyes reflecting gold light","H07"],
+ ["P07","portrait","연금술사 초상","1:1","the alchemist, lower face veiled with fine chain mesh, tired sharp eyes","H07"],
  ["P08","portrait","주술사 초상","1:1","the old shaman with antlers, ash-painted face, white eyes","H08"],
  ["X01","shadow","기사 · 그림자","2:3","the knight as her own living shadow, the tower shield cracked, ink pouring from the seals","H01"],
  ["X02","shadow","광전사 · 그림자","2:3","the berserker as his own living shadow, chains moving like snakes","H02"],
@@ -206,7 +206,7 @@ const ITEMS = [
  ["X04","shadow","사냥꾼 · 그림자","2:3","the hunter as his own living shadow, the crossbow fused into his arm","H04"],
  ["X05","shadow","마법사 · 그림자","2:3","the mage as her own living shadow, the sunstone in her hand burning black","H05"],
  ["X06","shadow","강령술사 · 그림자","2:3","the necromancer as his own living shadow, now chained by the shadow he once bound","H06"],
- ["X07","shadow","연금술사 · 그림자","2:3","the alchemist as his own living shadow, the beak mask turned into a real bird skull","H07"],
+ ["X07","shadow","연금술사 · 그림자","2:3","the alchemist as his own living shadow, the chain veil dripping like liquid ink, vials leaking black","H07"],
  ["X08","shadow","주술사 · 그림자","2:3","the shaman as her own living shadow, the antlers grown huge like dead trees","H08"],
  ["E01","enemy","떨어진 그림자","2:3","a fallen shade, a humanoid figure made of black ink and smoke, the faint outline of the person it once belonged to, a whispering mouth, reaching toward light"],
  ["E02","enemy","해골나방 떼","2:3","a swarm of large pale moths with skull patterns on their wings, together forming a vague tall humanoid shape"],
