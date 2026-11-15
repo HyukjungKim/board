@@ -1,0 +1,178 @@
+// 묻힌 태양 프롬프트북 — 스타일 기준, UI, 아이콘, 토큰, 룰북, 튜토리얼, 이펙트, 시네마틱, 마케팅
+// ---------- 스타일 기준 (가장 먼저) ----------
+[["ANCHOR-1", "기준 1 · 영웅 한 명", "sprite", "2:3", "Evelyn, a 38-year-old woman knight, broad and heavy-set, weathered olive skin, short greying dark hair, a crooked broken nose, mismatched blackened plate over a stained quilted gambeson, a tall battered tower shield painted with eight faded chained seals, a small shuttered iron lantern hung on the shield, a plain arming sword"],
+ ["ANCHOR-2", "기준 2 · 장면 하나", "scene", "9:16", "the edge of a mining village at eternal dusk, a wooden stake by the road with a nailed bounty notice, slag heaps and mine towers behind, a single pale oil lamp in a window"],
+ ["ANCHOR-3", "기준 3 · 전투맵 하나", "map", "9:16", "a mining village square with a barn, a well, carts, crates, low stone walls and cracks in the ground"],
+ ["ANCHOR-4", "기준 4 · 볕돌 빛과 그림자", "scene", "9:16", "a dark barn where a tiny glowing sunstone chip is the only warm light; a boy sits beside it and only inside its small circle of light does his ink-black shadow appear on the wall; everywhere else nothing has a shadow"]].forEach(([id, ko, t, ar, d]) => A("anchor", "i", 1, id, ko, ar, t, d));
+
+// ---------- UI ----------
+[["U-EVT", 1, "사건 카드 틀", "2:3", "vertical card frame for event cards: an illustration window in the upper two thirds, a plain parchment-dark text panel below, a small location plaque at the top"],
+ ["U-SKILL", 1, "행동 카드 틀 (빛/어둠)", "2:3", "vertical card frame split into an upper half with a warm sunstone motif and a lower half with an ink-shadow motif, a small round initiative slot at the top left"],
+ ["U-ENEMY", 1, "적 카드 틀", "2:3", "vertical card frame for enemies with a bone and rusted chain border and four small stat slots along the bottom"],
+ ["U-BOSS", 1, "보스 카드 틀", "2:3", "heavier vertical card frame for bosses, sun-iron border with eight broken chain links"],
+ ["U-ITEM1", 1, "아이템 틀 · 녹슨 철", "2:3", "item card frame of rusted plain iron"],
+ ["U-ITEM2", 1, "아이템 틀 · 은", "2:3", "item card frame of tarnished silver"],
+ ["U-ITEM3", 1, "아이템 틀 · 볕쇠", "2:3", "item card frame of dark red-black sun-iron, not gold"],
+ ["U-ITEM4", 1, "아이템 틀 · 유품", "2:3", "item card frame of bone, ash-black wood and sun-iron"],
+ ["U-HERO", 1, "영웅 보드 틀", "16:9", "a horizontal character board frame with a portrait window, three empty track rows and a small lantern emblem"],
+ ["U-BACK-EV", 1, "카드 뒷면 · 사건", "2:3", "card back with a buried sun bound by eight chains in concentric rings"],
+ ["U-BACK-SK", 1, "카드 뒷면 · 행동", "2:3", "card back with a shuttered lantern emblem"],
+ ["U-BACK-EN", 1, "카드 뒷면 · 적", "2:3", "card back with a man-shaped hole of darkness emblem"],
+ ["U-BACK-IT", 2, "카드 뒷면 · 아이템", "2:3", "card back with crossed tools emblem"],
+ ["U-BACK-SEC", 1, "카드 뒷면 · 비밀", "2:3", "card back with a closed eye sewn shut emblem"],
+ ["U-BTN", 1, "버튼 (기본)", "3:1", "wide rectangular button plate of dark iron with rivets"],
+ ["U-BTN2", 1, "버튼 (보조)", "3:1", "wide rectangular button plate of worn leather stitched to iron"],
+ ["U-BTN3", 2, "버튼 (비활성)", "3:1", "wide button plate of dull grey corroded iron"],
+ ["U-PANEL", 1, "대화 패널", "16:9", "a horizontal dialogue panel of dark aged parchment with iron corners"],
+ ["U-PORT", 1, "초상 프레임", "1:1", "a round portrait medallion frame with eight small chain links"],
+ ["U-HP", 1, "체력 게이지 틀", "4:1", "a long horizontal gauge frame with a heart icon socket on the left"],
+ ["U-SHTRACK", 1, "그림자 트랙 (0~6)", "4:1", "a horizontal track of seven empty sockets, the last socket carved like a dark open mouth"],
+ ["U-XP", 1, "경험치 바 틀", "4:1", "a long thin bar frame with five notches"],
+ ["U-FUEL", 1, "등불 연료 게이지", "4:1", "a gauge shaped like a lantern chamber with level marks"],
+ ["U-INIT", 1, "순서 표시 띠", "4:1", "a horizontal initiative strip with empty portrait slots"],
+ ["U-HL-MOVE", 1, "격자 하이라이트 · 이동", "1:1", "a single isometric diamond floor highlight in cool pale blue-grey light, soft edges"],
+ ["U-HL-ATK", 1, "격자 하이라이트 · 공격", "1:1", "a single isometric diamond floor highlight in deep crimson, soft edges"],
+ ["U-HL-LIGHT", 1, "격자 하이라이트 · 빛 구역", "1:1", "a single isometric diamond floor patch lit with warm sunstone gold"],
+ ["U-TURN", 1, "턴 배너", "4:1", "a horizontal banner plate of iron and cloth for turn announcements"],
+ ["U-WIN", 1, "승리 배너", "4:1", "a horizontal plate with a dimly lit lantern and frayed cloth, restrained, not triumphant"],
+ ["U-LOSE", 1, "패배 배너", "4:1", "a horizontal plate cracked with ink seeping from the crack"],
+ ["U-CHAP", 1, "장 제목 패", "4:1", "an ornamental plaque for chapter titles, chains and a half-buried sun"],
+ ["U-NODE", 1, "지도 노드 세트", "1:1", "a set of six small round map markers: a village, a crossed-blades combat mark, a scroll event mark, a skull boss mark, a campfire rest mark, a padlock locked mark"],
+ ["U-INV", 1, "인벤토리 칸", "1:1", "a single square inventory slot of dark iron with a small socket hole at the bottom"],
+ ["U-SOCKET", 2, "홈 (혼 카드)", "1:1", "an empty round socket carved in sun-iron"],
+ ["U-TIP", 2, "툴팁 상자", "16:9", "a small dark parchment tooltip box with a thin iron edge"],
+ ["U-TOAST", 2, "알림 띠", "4:1", "a narrow dark ribbon plate for short notifications"],
+ ["U-SAVE", 1, "세이브 슬롯 패", "16:9", "a single save slot plate shaped like a sealed envelope with an iron clasp"],
+ ["U-LOAD", 2, "로딩 바", "4:1", "a loading bar frame like a slowly opening lantern shutter"],
+ ["U-CHRON", 1, "연대기 시트 배경", "2:3", "a campaign chronicle sheet background of dark vellum with eight empty boxes, a truth scale and a peace scale"],
+ ["U-LOGO", 1, "로고 뒤 장식", "3:1", "an ornament for behind the game logo: chains and a half-buried sun, symmetrical"],
+ ["U-MENUBG", 1, "메뉴 패널 배경", "9:16", "a tall dark menu panel background of worn leather over iron"],
+ ["U-SETTINGS", 2, "설정 아이콘 세트", "1:1", "a set of small simple icons: sound, music, language, controls, close, back"]].forEach(([id, p, ko, ar, d]) => A("ui", "i", p, id, "UI · " + ko, ar, "ui", d));
+
+// ---------- 아이콘 ----------
+[["체력", "an anatomical heart"], ["그림자", "a small human silhouette of black ink"], ["빛", "a sunstone crystal radiating warm light"], ["등불 연료", "a lantern chamber half full"], ["경험치", "a rising pale spark"], ["힘", "a clenched fist"], ["민첩", "a running foot"], ["의지", "an open eye with a steady iris"], ["신앙", "a small sun under a line of earth"], ["공격", "a sword pointing down"], ["방어", "a tower shield"], ["이동", "a footprint"], ["사거리", "an arrow over a distance mark"], ["출혈", "three falling blood drops"], ["독", "a vial with a skull"], ["기절", "a cracked skull"], ["얼림", "a frost crystal"], ["굳음", "a hand turning to stone"], ["깃듦", "a shadow climbing a leg"], ["저주", "a broken chain"], ["묶임", "a closed chain loop"], ["비밀", "a closed eye sewn shut"], ["진실", "an open mouth"], ["평화", "a closed mouth"], ["연대기", "a bound book with a chain"], ["은화", "a worn silver coin"], ["식량", "a pale loaf of bread"], ["열쇠", "an iron key"], ["죽음", "a skull"], ["등갓 열림", "a lantern with its shutter open"], ["등갓 닫힘", "a lantern with its shutter closed"], ["종", "a bell"], ["밀랍", "a wax drip"], ["밧줄", "a rope coil"], ["조사", "a magnifying hand over the ground"], ["상호작용", "an open hand"], ["야영", "a small fire"], ["레벨업", "an upward chevron of light"], ["카드 뽑기", "a card being drawn"], ["카드 버림", "a card falling away"], ["카드 잃음", "a card burning to ash"], ["순서", "an hourglass"], ["주머니 뽑기", "a small drawstring bag"], ["봉인", "a padlock wrapped in chain"], ["볕돌", "a sunstone"], ["기억 조각", "a broken carved stone tablet"]].forEach(([ko, d], i) => A("icon", "i", i < 30 ? 1 : 2, "IC" + String(i + 1).padStart(2, "0"), "아이콘 · " + ko, "1:1", "icon", d));
+[["KN", "a tower shield with a lantern"], ["BZ", "a bearded axe and chain"], ["RG", "two crossed curved daggers"], ["HT", "a crossbow"], ["MG", "an iron cage pendant with a shard"], ["NC", "a chain ending in a small shadow"], ["AL", "a mortar and a vial"], ["SH", "a frame drum with antlers"]].forEach(([c, d]) => A("icon", "i", 1, "IC-" + c, "직업 아이콘 · " + c, "1:1", "icon", d));
+[["OATH", "봉인 서약회", "a seal ring bound by a chain"], ["DAWN", "새벽 결사", "a sun half-risen over a line"], ["GUILD", "볕돌 길드", "a balance scale with a stone"], ["ASH", "재의 사람들", "a knotted cord"], ["EIGHT", "여덟 가문", "eight links in a ring"]].forEach(([k, ko, d]) => A("icon", "i", 2, "FAC-" + k, "세력 문장 · " + ko, "1:1", "icon", d));
+
+// ---------- 토큰 (실물) ----------
+[["+1", "a small upward mark"], ["0", "a plain empty circle"], ["-1", "a small downward mark"], ["해 (2배)", "a blazing small sun"], ["공허 (빗나감)", "an empty black hole"], ["그림자 (+2, 그림자+1)", "an ink silhouette"]].forEach(([ko, d], i) => A("token", "i", 1, "TK-BAG" + (i + 1), "판정 주머니 토큰 · " + ko, "1:1", "token", "a round token showing " + d));
+[["끌림", "a figure being dragged by shadow tendrils"], ["빛 구역 표시", "a lantern with a circle of light"], ["라운드 표시", "an hourglass"], ["진실 표식", "an open mouth"], ["평화 표식", "a closed mouth"], ["적 받침", "a round stand base with an iron rim"], ["굳음", "a gold crust"], ["깃듦", "a shadow on a foot"], ["얼림", "frost"], ["묶임", "a chain loop"]].forEach(([ko, d], i) => A("token", "i", 2, "TK-" + (i + 1), "토큰 · " + ko, "1:1", "token", "a round status token showing " + d));
+A("token", "i", 2, "TK-BAG", "판정 주머니", "1:1", "prop", "a worn drawstring cloth bag with an embroidered chain pattern");
+A("token", "i", 3, "TK-BOX", "게임 상자 전면", "2:3", "key", "a boxed board game cover: lanternbearers at a chasm edge, a buried sun glowing below");
+A("token", "i", 3, "TK-BOXSIDE", "게임 상자 옆면", "4:1", "mkt", "a long narrow strip of eight lanternbearers walking in silhouette");
+A("token", "i", 3, "TK-MAT", "플레이 매트", "16:9", "rule", "a playmat background of dark stone and faint isometric grid lines, empty spaces for decks");
+
+// ---------- 룰북 / 룰카드 ----------
+[["RB-COVER", 1, "룰북 표지", "9:16", "key", "rulebook cover: a single lanternbearer opening a lantern shutter at the edge of a dark village"],
+ ["RB-TOC", 2, "목차 배경", "9:16", "rule", "a calm dark vellum page with a faint chain border"],
+ ["RB-CH1", 1, "장 · 이 게임은", "16:9", "rule", "a wide view of a dusk continent with a chasm at its centre"],
+ ["RB-CH2", 1, "장 · 준비", "16:9", "rule", "a table top with cards, tokens and a cloth bag laid out neatly, seen from above, no readable text"],
+ ["RB-CH3", 1, "장 · 라운드", "16:9", "rule", "four lanternbearers each placing two face-down cards at the same moment"],
+ ["RB-CH4", 1, "장 · 전투", "16:9", "rule", "an isometric fight between lanternbearers and orphan shadows in a village square"],
+ ["RB-CH5", 1, "장 · 빛과 그림자", "16:9", "rule", "a lantern opened, a circle of warm light on the ground, shadows solid inside it and holes of darkness outside it"],
+ ["RB-CH6", 1, "장 · 조사와 사건", "16:9", "rule", "lanternbearers examining a black well, a door and a ledger"],
+ ["RB-CH7", 1, "장 · 성장과 장비", "16:9", "rule", "a weapon laid on an anvil, socket shards beside it"],
+ ["RB-CH8", 1, "장 · 연대기와 세이브", "16:9", "rule", "a sealed envelope and a bound chronicle book on a table"],
+ ["RB-CH9", 2, "장 · 혼자 하기", "16:9", "rule", "a single lanternbearer walking with their own shadow beside them"],
+ ["RB-EX", 1, "플레이 예시 장면", "9:16", "map", "a small village edge with a fence, a well and a crack in the ground, ready for an example of play"],
+ ["RB-DIAG", 1, "빛 반경 도해 배경", "1:1", "rule", "an isometric floor patch with a lantern in the centre and its light falling in a clear radius"],
+ ["RB-SIDE", 2, "사이드바 장식", "3:1", "ui", "a narrow ornamental sidebar header with a small lantern"],
+ ["RB-BACK", 2, "뒷표지", "9:16", "rule", "a dark closing page with a buried sun faint at the bottom"],
+ ["RC-ROUND", 1, "룰카드 · 라운드 요약 배경", "2:3", "rule", "a reference card background with five faint stacked bands"],
+ ["RC-LIGHT", 1, "룰카드 · 빛과 그림자 배경", "2:3", "rule", "a reference card background split warm gold above and ink dark below"],
+ ["RC-BAG", 1, "룰카드 · 주머니 토큰 배경", "2:3", "rule", "a reference card background with a faint cloth bag"],
+ ["RC-ICONS", 1, "룰카드 · 아이콘 해설 배경", "2:3", "rule", "a reference card background with a faint grid of empty icon circles"]].forEach(([id, p, ko, ar, t, d]) => A("rule", "i", p, id, "룰 · " + ko, ar, t, d));
+
+// ---------- 튜토리얼 ----------
+[["어서 오게, 등불잡이", "an old one-eyed lanternbearer greeting a newcomer at a village gate"],
+ ["격자 위를 걷기", "a lanternbearer stepping from one isometric floor tile to the next"],
+ ["카드 두 장 고르기", "a hand holding two cards chosen from a fan of cards"],
+ ["순서 공개", "cards flipped face up at the same moment around a table"],
+ ["빛 효과와 어둠 효과", "a single card glowing warm on top and dark below"],
+ ["등갓을 열면", "a lantern shutter opening and a circle of gold light spreading on the ground"],
+ ["내 그림자가 나타난다", "a lanternbearer noticing their own shadow forming on a wall in lantern light"],
+ ["빛 안에서만 벨 수 있다", "a sword passing harmlessly through a hole of darkness outside the light, and striking a solid shadow inside the light"],
+ ["주머니에서 뽑기", "a hand drawing a token from a cloth bag"],
+ ["적의 행동 카드", "an enemy card flipped revealing the creature's next move"],
+ ["쓰러짐과 일으키기", "a lanternbearer pulling a fallen companion up from shadow tendrils"],
+ ["장소 조사와 사건 카드", "a lanternbearer entering a cottage and finding a card on the table"],
+ ["그림자가 비밀을 말한다", "a shadow on a wall speaking while its owner covers their mouth"],
+ ["그림자에 사로잡히다", "a character card being flipped to reveal a shadow form"],
+ ["레벨업", "a lanternbearer choosing between two new cards"],
+ ["전리품과 홈", "a black glass shard being fitted into a weapon socket"],
+ ["되돌릴 수 없다", "a card turned face up and a wax seal pressed onto a letter at the same moment"],
+ ["진실과 평화", "two stones on a scale, one marked by an open mouth, one by a closed mouth"],
+ ["야영하면 카드 한 장을 잃는다", "a small pale fire, one card burning to ash"],
+ ["강한 빛은 그림자를 태운다", "an oath warden's hard light burning away a shadow at its edge"],
+ ["깃든 사람을 구하기", "a lantern raised over a villager as their true shadow pushes a false one away"]].forEach(([ko, d], i) => A("tutorial", "i", i < 12 ? 1 : 2, "TU" + String(i + 1).padStart(2, "0"), "튜토리얼 " + (i + 1) + " · " + ko, "3:4", "tut", d));
+
+// ---------- 이펙트 (영상) ----------
+[["shutter", 1, "등갓 열림 빛 번짐", "warm gold light bursting out of an opening lantern shutter and settling into a steady glow", false],
+ ["lightzone", 1, "빛 구역 바닥", "a circle of warm gold light breathing softly on an isometric floor", true],
+ ["pulse", 1, "볕돌 맥박", "a sunstone pulsing like a slow heartbeat", true],
+ ["burnout", 2, "볕돌 꺼짐", "a glowing sunstone dimming and crumbling into grey ash-stone", false],
+ ["shform", 1, "그림자가 벽에 맺힘", "ink spreading on an invisible wall into a human silhouette", false],
+ ["shspeak", 1, "그림자가 말함", "the mouth area of an ink silhouette rippling as if speaking", true],
+ ["shcut", 1, "그림자 베임", "a slash through an ink figure that bursts into black droplets with violet edges", false],
+ ["shburn", 1, "강한 빛에 타는 그림자", "an ink figure evaporating at the edge of hard gold light into violet smoke", false],
+ ["nest", 1, "깃듦 (발에서 스며 오름)", "darkness creeping up from the feet of an invisible figure", false],
+ ["rescue", 1, "짝그림자가 가짜를 밀어냄", "two ink shadows struggling, one pushing the other out and away", false],
+ ["frost", 1, "얼음 물결", "thin frost lines spreading across black water", false],
+ ["petrify", 1, "볕돌 굳음", "a crust of dull gold stone spreading across a surface", false],
+ ["goldblood", 1, "금빛 피 튐", "a spray of thick gold liquid from a crack, hardening as it falls", false],
+ ["waxmelt", 2, "밀랍 녹음", "pale wax sagging and dripping", false],
+ ["waxcrack", 1, "밀랍 금 + 잉크", "cracks running across pale wax with black ink seeping out", false],
+ ["chainbind", 1, "사슬 묶기", "an iron chain whipping around an invisible shape and snapping tight", false],
+ ["chainbreak", 1, "사슬 끊어짐", "a rusted chain link bursting apart", false],
+ ["bell", 1, "종소리 파동", "a ring of shaking dust expanding outward", false],
+ ["whisper", 1, "발밑에서 오르는 목소리", "faint ripples rising from the ground like heat haze", true],
+ ["moths", 1, "나방 떼 퍼짐", "pale moths bursting outward in a flurry", false],
+ ["motheat", 2, "나방이 빛을 먹음", "moths swarming over a gold glow until it dims", false],
+ ["hardlight", 1, "강한 볕빛 폭발", "a hard flash of gold light from a flawless stone", false],
+ ["ash", 1, "떨어지는 재", "grey ash flakes drifting down", true],
+ ["palefire", 1, "창백한 불", "a cold pale silver-white flame flickering", true],
+ ["smoke", 2, "연기", "a curl of grey smoke", true],
+ ["blood", 1, "핏방울", "a burst of dark crimson droplets", false],
+ ["slash-sword", 1, "검 궤적", "a short curved trail of a sword swing", false],
+ ["slash-axe", 1, "도끼 궤적", "a wide heavy arc of an axe swing", false],
+ ["slash-dagger", 1, "단검 궤적", "two quick crossing slash trails", false],
+ ["bolt", 1, "석궁 화살 궤적", "a fast straight streak of a crossbow bolt", false],
+ ["sunfire", 1, "볕불 분출", "a burst of gold fire from a small point", false],
+ ["vial", 1, "약병 깨짐", "a glass vial shattering into pale mist", false],
+ ["drum", 1, "북 파동", "a dull shockwave ring of dust", false],
+ ["curse", 1, "저주 표식", "a dark mark of a broken chain flickering into being", false],
+ ["heal", 1, "치유", "soft warm motes rising and fading", false],
+ ["levelup", 1, "레벨업", "a pale glow rising like a breath and fading", false],
+ ["drop", 1, "아이템 떨어짐", "a small puff of dust and a glint", false],
+ ["chest", 1, "상자 열림 빛", "dust and a faint glint rising from an opened chest", false],
+ ["cardflip", 1, "카드 뒤집힘", "a card flipping over with a puff of ink", false],
+ ["secret", 1, "비밀 공개 (잉크 글씨)", "lines of ink writing themselves across dark parchment, illegible", false],
+ ["fragment", 1, "기억 조각 공개", "dust blowing off an ancient carved stone surface", false],
+ ["chron", 2, "연대기 표시", "a wax seal pressed and setting", false],
+ ["death", 2, "쓰러짐 먼지", "a low puff of dust", false],
+ ["hit", 1, "타격 불꽃", "a small burst of iron sparks", false]].forEach(([k, p, ko, d, loop]) => A("fx", "v", p, "FX-" + k, "이펙트 · " + ko, "1:1", loop ? "fxloop" : "fx", d + ". Visual effect only."));
+
+// ---------- 시네마틱 ----------
+[["CIN-TITLE", 1, "타이틀 루프", "S0-TITLE", "Very slow push-in toward the cracks, gold light seeping upward and breathing, the lantern on the surface swaying slightly."],
+ ["CIN-PRO", 1, "프롤로그 · 해를 묻다", "F-DRAG", "Slow tilt down following the sun as it is dragged into the splitting earth."],
+ ["CIN-FALL", 1, "프롤로그 · 그림자가 떨어지다", "F-FALL", "Shadows peel from the ground and fall like black rain into the chasm, slow motion."],
+ ["CIN-E1", 1, "에1 · 그림자가 고개를 든다", "S1-BARN", "Static. The boy's shadow on the wall slowly lifts its head while the boy stays still."],
+ ["CIN-E2", 1, "에2 · 오다가 내려간다", "S2-MILL", "Slow push toward the well as a rope tightens and goes slack."],
+ ["CIN-E3", 1, "에3 · 나는 아직 살아 있다", "S3-SEVEN", "Very slow push toward the wall shadow as its mouth moves."],
+ ["CIN-E4", 1, "에4 · 종이 울린다", "S4-BELL", "The hammer swings, the bell shakes, dust bursts from the engraving, the camera shakes once."],
+ ["CIN-E5", 1, "에5 · 심장이 뛴다", "S5-HEART", "Static. The heart beats twice, light swelling and receding through the veins."],
+ ["CIN-E6", 1, "에6 · 복도의 세 그림자", "S6-CORR", "Static. The line of gold light appears, three shadows form on the wall, the light is covered and they vanish."],
+ ["CIN-E7", 1, "에7 · 나방이 탑을 덮는다", "S7-SWARM", "Slow tilt up the tower as moths crawl over it and the light dims."],
+ ["CIN-E8", 1, "에8 · 문이 숨을 쉰다", "S8-GATE", "Very slow push toward the gate as light through the cracks breathes."],
+ ["CIN-SUN", 2, "에8 C · 해가 말한다", "END8-C", "Static, the golden light swells gently as if speaking."],
+ ["CIN-KING", 2, "길손이 지나간다", "N-KING-F", "Static. The tall wanderer walks slowly across the frame from left to right and out, the pale lamp swinging."]].forEach(([id, p, ko, ref, s]) => A("cine", "v", p, id, "시네마틱 · " + ko, "9:16", "cine", s, ref));
+
+// ---------- 마케팅 ----------
+[["MK-ICON", 1, "앱 아이콘", "1:1", "key", "a single shuttered lantern half open, a sliver of gold light, dark background, bold and readable at small size"],
+ ["MK-FEAT", 1, "스토어 대표 이미지", "16:9", "mkt", "eight lanternbearers at a chasm edge at dusk, their lanterns shuttered, gold light leaking from the depths"],
+ ["MK-SS1", 2, "스크린샷 배경 1", "9:16", "scene", "a dusk village with lantern light, room for captions"],
+ ["MK-SS2", 2, "스크린샷 배경 2", "9:16", "scene", "a cistern of black water with a single gold glow"],
+ ["MK-POSTER", 2, "포스터", "2:3", "key", "a boy and his shadow touching hands on a barn wall, a buried sun under the floorboards"],
+ ["MK-TRAILER1", 2, "트레일러 컷 · 첫 문장", "16:9", "mkt", "a vast dusk sky over cracked earth, a faint gold glow beneath"],
+ ["MK-TRAILER2", 2, "트레일러 컷 · 등불잡이", "16:9", "mkt", "a lanternbearer opening a lantern in a dark square, shadows forming everywhere"],
+ ["MK-KS", 3, "크라우드펀딩 헤더", "16:9", "mkt", "a table spread of the physical board game with cards, tokens and miniatures, moody lighting, no readable text"]].forEach(([id, p, ko, ar, t, d]) => A("mkt", "i", p, id, "마케팅 · " + ko, ar, t, d));
